@@ -1,17 +1,14 @@
 import React from "react";
 
 import { getFeaturedProject } from "../dummy-project";
+import ProjectList from "../components/projects/project-list";
 
 export default function HomePage() {
   const featuredProjects = getFeaturedProject();
 
   return (
-    <div>
-      <ul>
-        {featuredProjects.map((project) => (
-          <li>{project}</li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      <ProjectList items={featuredProjects} />
+    </ul>
   );
 }

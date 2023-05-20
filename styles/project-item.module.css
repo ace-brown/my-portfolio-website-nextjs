@@ -1,0 +1,100 @@
+/* Project list */
+
+.project-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 3rem auto;
+}
+
+/* CARD COMPONENT */
+
+.card {
+  background-size: cover;
+  padding: 10rem 0 0;
+  max-width: 35ch;
+  color: var(--white);
+  border-radius: var(--size-2);
+  overflow: hidden;
+  transition: transform 500ms ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-content {
+  --padding: 1.5rem;
+  padding: var(--padding);
+  background: linear-gradient(
+    hsl(0 0% 0% / 0),
+    hsl(20 0% 0% / 0.4) 20%,
+    hsl(0 0% 0% / 1)
+  );
+  transform: translateY(55%);
+  transition: transform 500ms ease;
+}
+
+.card-content > *:not(.card-title) {
+  opacity: 0;
+  transition: opacity 500ms linear;
+}
+
+.card:hover .card-content {
+  transform: translateY(0);
+}
+
+.card:hover .card-content > * {
+  opacity: 1;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  width: max-content;
+}
+
+.card-title::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--padding) * -1);
+  bottom: 0;
+  width: calc(100% + var(--padding));
+  height: 4px;
+  background: var(--color-success-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms ease;
+}
+
+.card:hover .card-title::after {
+  transform: scaleX(1);
+}
+
+.card-body {
+  /* Lightening the body text */
+  color: rgb(255, 255, 255 / 0.85);
+}
+
+.button {
+  cursor: pointer;
+  background: var(--color-success-500);
+  color: var(--black);
+  text-decoration: none;
+  border: none;
+  padding: 0.5em 1em;
+  text-transform: uppercase;
+  border-radius: 0.25em;
+}
+
+.button:hover,
+.button:focus {
+  background: var(--color-grey-50);
+}
+
+@media (min-width: 700px) {
+  .project-list {
+    margin: 10rem auto;
+  }
+}

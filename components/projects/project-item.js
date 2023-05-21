@@ -4,7 +4,7 @@ import React from "react";
 import classes from "../../styles/project-item.module.css";
 
 export default function ProjectItem(props) {
-  const { id, title, description, image } = props;
+  const { id, title, tech, image } = props;
   // const humanReadableDate = new Date(date).toLacal...
   const readMoreLink = `/projects/${id}`;
   return (
@@ -15,9 +15,8 @@ export default function ProjectItem(props) {
       >
         <div className={classes["card-content"]}>
           <h2 className={classes["card-title"]}>{title}</h2>
-          <p className={classes["card-body"]}>{description}</p>
+          <p className={classes["card-body"]}>{tech}</p>
           <button className={classes.button}>
-            {" "}
             <Link href={readMoreLink}>Learn more</Link>
           </button>
         </div>

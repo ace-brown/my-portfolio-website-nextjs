@@ -3,7 +3,7 @@
 .project-list {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   margin: 3rem auto;
 }
 
@@ -11,13 +11,17 @@
 
 .card {
   background-size: cover;
-  aspect-ratio: 1/1.42;
   padding: 10rem 0 0;
   max-width: 35ch;
   color: var(--white);
   border-radius: var(--size-2);
   overflow: hidden;
   transition: transform 500ms ease;
+}
+
+.card.featured {
+  grid-row: span 2;
+  grid-column: span 2;
 }
 
 .card:hover,
@@ -94,24 +98,6 @@
   .card-title::after {
     transform: scaleX(0);
   }
-}
-
-/* Button ***********************************************************/
-
-.button {
-  cursor: pointer;
-  background: var(--color-success-500);
-  color: var(--black);
-  text-decoration: none;
-  border: none;
-  padding: 0.5em 1em;
-  text-transform: uppercase;
-  border-radius: 0.25em;
-}
-
-.button:hover,
-.button:focus {
-  background: var(--color-grey-50);
 }
 
 @media (min-width: 700px) {

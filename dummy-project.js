@@ -1,7 +1,7 @@
 const DUMMY_PROJECTS = [
   {
     id: "p1",
-    title: "Full Stack Visited Place App",
+    title: "Visited Place App",
     description: "Everyone can learn to code! Yes, everyone!",
     tech: "Used Tech: HTML, CSS, ReactJs",
     date: "2021-05-12",

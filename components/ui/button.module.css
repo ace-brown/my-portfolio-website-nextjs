@@ -1,0 +1,15 @@
+.button {
+  cursor: pointer;
+  background: var(--color-success-500);
+  color: var(--black);
+  text-decoration: none;
+  border: none;
+  padding: 0.5em 1em;
+  text-transform: uppercase;
+  border-radius: 0.25em;
+}
+
+.button:hover,
+.button:focus {
+  background: var(--color-grey-50);
+}

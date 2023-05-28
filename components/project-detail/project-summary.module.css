@@ -1,6 +1,5 @@
 .summary {
   margin: 0 auto;
-  color: var(--black);
 }
 
 .summary-content {
@@ -25,6 +24,7 @@
 .summary-img img {
   max-width: 100%;
   object-fit: cover;
+  box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.4);
 }
 
 @media (min-width: 600px) {

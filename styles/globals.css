@@ -46,10 +46,10 @@ body {
   --size-20: 5rem;
   --size-40: 10rem;
 
-  margin: 0;
-  background-color: var(--color-grey-50);
-  color: #252525;
+  background-color: var(--white);
+  color: var(--black);
   font-family: var(--font-text);
+  margin: 0;
 }
 
 h1,

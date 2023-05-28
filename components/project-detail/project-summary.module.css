@@ -1,8 +1,43 @@
 .summary {
-  color: rgb(0, 191, 255);
+  margin: 0 auto;
+  color: var(--black);
+}
+
+.summary-content {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.summary-content h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.summary-content p:first-of-type {
+  margin-top: 0;
 }
 
 .summary-img {
-  width: 100%;
-  display: block;
+  margin: 2rem auto;
+}
+
+.summary-img img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 600px) {
+  .summary h1 {
+    font-size: 3rem;
+    margin: 3rem auto;
+  }
+
+  .summary-content h3 {
+    font-size: 2.2rem;
+  }
+
+  .summary-img {
+    margin: 3.5rem auto;
+  }
 }

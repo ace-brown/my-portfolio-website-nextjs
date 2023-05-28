@@ -1,24 +1,33 @@
-import React from "react";
-import Link from "next/link";
+import React, { Fragment } from "react";
 
 import classes from "./project-summary.module.css";
 import styles from "../../styles/shame.module.css";
 
 export default function ProjectSummary(props) {
-  const { title, tech, description, link, image } = props;
+  const { title, tech, descriptionFull, link, image } = props;
   const adjustedImg = `/${image}`;
 
   return (
-    <>
-      <div className={`${styles.container} ${classes.summary}`}>
-        <h1>Project name:{title}</h1>
-        <h3>Technology used:{tech}</h3>
-        <p>Description:{description}</p>
-        <p>Link to the project's code:{link}</p>
+    <div className={`${classes.summary} ${styles.container}`}>
+      <div>
+        <h1 className={styles.capital}> Project name: {title}</h1>
+        <div className={classes["summary-content"]}>
+          <h3>
+            <span className={styles.bold}>Technology used: </span>
+            {tech}
+          </h3>
+          <div>
+            <p>
+              <span className={styles.bold}>Description: </span>
+              {descriptionFull}
+            </p>
+            <p>Link to the project's code: {link}</p>
+          </div>
+        </div>
       </div>
       <div className={classes["summary-img"]}>
-        <img href={adjustedImg}></img>
+        <img src={adjustedImg}></img>
       </div>
-    </>
+    </div>
   );
 }

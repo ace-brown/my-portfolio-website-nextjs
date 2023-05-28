@@ -14,10 +14,10 @@ export default function ProjectDetailPage() {
     <>
       <ProjectSummary
         title={project.title}
-        description={project.description}
+        descriptionFull={project.descriptionFull}
         tech={project.tech}
         link={project.link}
-        image={project.link}
+        image={project.image}
       />
     </>
   );

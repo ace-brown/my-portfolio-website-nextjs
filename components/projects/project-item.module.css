@@ -20,11 +20,6 @@
   box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.15);
 }
 
-.card.featured {
-  grid-row: span 2;
-  grid-column: span 2;
-}
-
 .card:hover,
 .card:focus-within {
   transform: scale(1.05);
@@ -68,6 +63,7 @@
 .card-body {
   /* Lightening the body text */
   color: rgb(255, 255, 255 / 0.85);
+  margin-bottom: 1rem;
 }
 
 @media (hover) {

@@ -1,26 +1,147 @@
-.visually-hidden {
-  position: absolute;
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
-
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: 0 auto;
+  display: flex;
+  background: var(--white);
+  height: 5rem;
+  justify-content: space-between;
 }
 
-.nav-list {
+.logo {
+  font-size: 2rem;
+  margin-left: 2rem;
+  color: var(--black);
+}
+
+.navbar {
+  height: 5rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.nav-menu {
+  margin-right: 2rem;
   display: flex;
   justify-content: space-between;
+}
+
+.menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+}
+
+.nav-menu-items {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.svg-icon {
+  display: inline-block;
+}
+.nav-text {
+  display: flex;
+  color: var(--white);
+  margin-left: 1rem;
   align-items: center;
-  padding: ;
+  padding: 0.5rem 0 0.5rem 1rem;
+  height: 3.75rem;
+}
+
+.nav-text a {
+  color: var(--black);
+  font-size: 1rem;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-text span {
+  margin-left: 1rem;
+}
+
+.svg-icon {
+  display: none;
+}
+
+.menu-bars {
+  display: none;
+}
+
+@media (max-width: 50em) {
+  .header {
+    background: #060b26;
+    height: 5rem;
+  }
+  .svg-icon {
+    display: block;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  /* .navbar {
+    height: 5rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  } */
+
+  .nav-menu {
+    background-color: #060b26;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    /* left: -100%; */
+    transition: 850ms;
+  }
+
+  .nav-menu.active {
+    left: 0;
+    transition: 350ms;
+  }
+
+  .nav-text {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0.5rem 0 0.5rem 1rem;
+    height: 3.75rem;
+  }
+
+  .nav-text a {
+    color: #f5f5f5;
+    font-size: 1.5rem;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border-radius: 4px;
+  }
+
+  .nav-text a:hover {
+    background-color: #1a83ff;
+  }
+
+  .nav-menu-items {
+    width: 100%;
+    display: block;
+  }
+
+  .navbar-toggle {
+    background-color: #060b26;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .nav-text span {
+    margin-left: 1rem;
+  }
 }

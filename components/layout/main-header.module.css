@@ -1,14 +1,17 @@
 .header {
-  margin: 0 auto;
+  margin: 2rem auto;
   display: flex;
   background: var(--white);
-  height: 5rem;
   justify-content: space-between;
+}
+
+.svg-icon {
+  display: none;
 }
 
 .logo {
   font-size: 2rem;
-  margin-left: 2rem;
+  margin-left: 3rem;
   color: var(--black);
 }
 
@@ -20,59 +23,46 @@
 }
 
 .nav-menu {
-  margin-right: 2rem;
+  margin-right: 3rem;
   display: flex;
   justify-content: space-between;
 }
 
-.menu-bars {
-  margin-left: 2rem;
-  font-size: 2rem;
-  background: none;
-}
-
 .nav-menu-items {
   display: flex;
+  gap: clamp(1rem, 4vw, 2rem);
   justify-content: space-evenly;
 }
 
-.svg-icon {
-  display: inline-block;
-}
 .nav-text {
   display: flex;
-  color: var(--white);
   margin-left: 1rem;
-  align-items: center;
-  padding: 0.5rem 0 0.5rem 1rem;
-  height: 3.75rem;
 }
 
 .nav-text a {
   color: var(--black);
-  font-size: 1rem;
+  font-size: 1.125rem;
   width: 95%;
   height: 100%;
   display: flex;
   align-items: center;
+  font-weight: var(--fw-semi-bold);
+}
+
+.nav-text a:hover,
+.nav-text a:focus {
+  color: var(--color-primary-300);
 }
 
 .nav-text span {
   margin-left: 1rem;
 }
 
-.svg-icon {
-  display: none;
-}
-
-.menu-bars {
-  display: none;
-}
-
 @media (max-width: 50em) {
   .header {
     background: #060b26;
     height: 5rem;
+    margin: 0 auto;
   }
   .svg-icon {
     display: block;
@@ -82,20 +72,14 @@
     display: none;
   }
 
-  /* .navbar {
-    height: 5rem;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  } */
-
   .nav-menu {
     background-color: #060b26;
     width: 250px;
     height: 100vh;
     position: fixed;
+    margin-right: 2rem;
     top: 0;
-    /* left: -100%; */
+    left: -100%;
     transition: 850ms;
   }
 
@@ -105,7 +89,7 @@
   }
 
   .nav-text {
-    display: flex;
+    color: var(--white);
     justify-content: start;
     align-items: center;
     padding: 0.5rem 0 0.5rem 1rem;
@@ -115,21 +99,19 @@
   .nav-text a {
     color: #f5f5f5;
     font-size: 1.5rem;
-    width: 95%;
-    height: 100%;
-    display: flex;
-    align-items: center;
     padding: 0 1rem;
     border-radius: 4px;
   }
 
-  .nav-text a:hover {
+  .nav-text a:hover,
+  .nav-text a:focus {
     background-color: #1a83ff;
   }
 
   .nav-menu-items {
     width: 100%;
     display: block;
+    gap: 0;
   }
 
   .navbar-toggle {
@@ -141,7 +123,9 @@
     align-items: center;
   }
 
-  .nav-text span {
-    margin-left: 1rem;
+  .menu-bars {
+    margin-left: 2rem;
+    font-size: 2rem;
+    background: none;
   }
 }

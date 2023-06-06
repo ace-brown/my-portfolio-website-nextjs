@@ -1,6 +1,6 @@
-.button {
+.btn {
   cursor: pointer;
-  background: var(--color-success-500);
+  background: var(--color-primary-600);
   color: var(--black);
   text-decoration: none;
   border: none;
@@ -9,7 +9,7 @@
   border-radius: 0.25em;
 }
 
-.button:hover,
-.button:focus {
-  background: var(--color-grey-50);
+.btn:hover,
+.btn:focus {
+  background: var(--color-primary-400);
 }

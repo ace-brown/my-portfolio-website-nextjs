@@ -1,15 +1,17 @@
 import React from "react";
 
 import ProjectList from "../../components/projects/project-list";
+import ProjectSearch from "../../components/projects/project-search";
 
-import { getFeaturedProject } from "../../dummy-project";
+import { getAllProject } from "../../dummy-project";
 
 export default function AllProjectsPage() {
-  const featuredProjects = getFeaturedProject();
+  const allProjects = getAllProject();
 
   return (
     <ul>
-      <ProjectList items={featuredProjects} />
+      <ProjectSearch />
+      <ProjectList items={allProjects} />
     </ul>
   );
 }

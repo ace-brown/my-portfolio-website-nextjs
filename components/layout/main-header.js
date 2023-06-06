@@ -16,7 +16,6 @@ export default function MainHeader(props) {
     setToggle(!toggle);
   };
 
-  // ${styles.container}
   return (
     <>
       {/* Video by ROMAN ODINTSOV: https://www.pexels.com/video/drone-shot-of-the-coast-6662984/ */}

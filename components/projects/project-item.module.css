@@ -63,7 +63,13 @@
 .card-body {
   /* Lightening the body text */
   color: rgb(255, 255, 255 / 0.85);
+  margin-bottom: 0.5rem;
+}
+
+.card-date {
+  display: block;
   margin-bottom: 1rem;
+  font-weight: var(--fw-semi-bold);
 }
 
 @media (hover) {

@@ -1,17 +1,16 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import Image from "next/image";
+import { useRouter } from "next/router";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { SidebarData } from "./sidebar-data";
-import { IconContext } from "react-icons";
 
 import classes from "./main-header.module.css";
-import styles from "../../styles/shame.module.css";
-import logo from "../../public/images/Logo.png";
 
 export default function MainHeader(props) {
   const [toggle, setToggle] = useState(false);
+  const router = useRouter();
+  const HomePageRoute = router.pathname === "/";
 
   const sidebarHandler = () => {
     setToggle(!toggle);
@@ -20,13 +19,19 @@ export default function MainHeader(props) {
   // ${styles.container}
   return (
     <>
-      <IconContext.Provider value={{ color: "#fff" }}>
+      {/* Video by ROMAN ODINTSOV: https://www.pexels.com/video/drone-shot-of-the-coast-6662984/ */}
+      {!HomePageRoute && (
         <header className={` ${classes.header}`}>
-          <div className={classes.navbar}>
+          <div className={classes["logo-and-menubars"]}>
             <Link href="/" className={classes.logo}>
-              <img src="/images/Logo.png" alt="Logo" width={150} height={100} />
+              <img
+                src="/images/LogoMakr-9F7SZ3.png"
+                alt="Logo"
+                width={120}
+                height={100}
+              />
             </Link>
-            <Link href="/" className={classes["menu-bars"]}>
+            <Link href="#" className={classes["menu-bars"]}>
               <FaBars onClick={sidebarHandler} />
             </Link>
           </div>
@@ -39,7 +44,7 @@ export default function MainHeader(props) {
           >
             <ul className={classes["nav-menu-items"]} onClick={sidebarHandler}>
               <li className={classes["nav-text"]}>
-                <Link href="/">
+                <Link href="#">
                   <AiOutlineClose className={classes["svg-icon"]} />
                 </Link>
               </li>
@@ -56,7 +61,7 @@ export default function MainHeader(props) {
             </ul>
           </nav>
         </header>
-      </IconContext.Provider>
+      )}
     </>
   );
 }

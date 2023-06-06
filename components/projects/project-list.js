@@ -17,6 +17,7 @@ export default function ProjectList(props) {
           key={project.id}
           id={project.id}
           title={project.title}
+          date={project.date}
           tech={project.tech}
           image={project.image}
         />

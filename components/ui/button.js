@@ -1,12 +1,12 @@
 import Link from "next/link";
 import React from "react";
 
-import classes from "./button.module.css";
+import styles from "./button.module.css";
 
 export default function Button(props) {
   if (props.link) {
     return (
-      <Link className={classes.btn} href={props.link}>
+      <Link className={`${props.className} ${styles.btn}`} href={props.link}>
         {props.children}
       </Link>
     );
@@ -15,7 +15,7 @@ export default function Button(props) {
   return (
     <button
       onClick={props.onClick}
-      className={`${props.className} ${classes.btn}`}
+      className={`${props.className} ${styles.btn}`}
     >
       {props.children}
     </button>

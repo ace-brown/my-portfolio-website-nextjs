@@ -1,7 +1,11 @@
 import React from "react";
+import { Fragment } from "react";
 import { useRouter } from "next/router";
 
 import { getFilteredProject } from "../../dummy-project";
+import ProjectList from "../../components/projects/project-list";
+import ProjectSearch from "../../components/projects/project-search";
+import ResultsTitle from "../../components/projects/results-title";
 
 export default function FilteredProjectPage() {
   const router = useRouter();
@@ -28,9 +32,13 @@ export default function FilteredProjectPage() {
     numYear > 2030
   ) {
     return (
-      <p className="center">
-        Invalid filter. Please adjust your values and try again.
-      </p>
+      <Fragment>
+        <ProjectSearch />
+        <p className="center">
+          Invalid filter. Please adjust your values and try again.
+        </p>
+        ;
+      </Fragment>
     );
   }
 
@@ -40,8 +48,20 @@ export default function FilteredProjectPage() {
   });
 
   if (!filteredProject || filteredProject.length === 0) {
-    return <p className="center">No project found</p>;
+    return (
+      <Fragment>
+        <ProjectSearch />
+        <ResultsTitle />
+        <p className="center">No project found</p>;
+      </Fragment>
+    );
   }
 
-  return <div>FilteredProjectPage</div>;
+  return (
+    <Fragment>
+      <ProjectSearch />
+      <ResultsTitle />
+      <ProjectList items={filteredProject} />;
+    </Fragment>
+  );
 }

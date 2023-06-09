@@ -6,7 +6,7 @@ const DUMMY_PROJECTS = [
     descriptionFull:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
     tech: "HTML, CSS, ReactJs, MongoDB, Git",
-    date: "2021-05-12",
+    date: "2021-02-12",
     link: "some link",
     image: "images/visited-places.jpeg",
     isFeatured: false,
@@ -42,7 +42,7 @@ const DUMMY_PROJECTS = [
     descriptionFull:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
     tech: "HTML, CSS, ReactJs, Solidity, HardHat",
-    date: "2022-04-10",
+    date: "2021-02-10",
     link: "some link",
     image: "images/front-page-2.JPG",
     isFeatured: true,
@@ -66,7 +66,7 @@ const DUMMY_PROJECTS = [
     descriptionFull:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
     tech: "HTML, CSS, NextJs, MongoDB, Git",
-    date: "2021-05-30",
+    date: "2021-02-30",
     link: "some link",
     image: "images/5g.png",
     isFeatured: true,
@@ -126,7 +126,7 @@ const DUMMY_PROJECTS = [
     descriptionFull:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
     tech: "HTML, CSS, NextJs, MongoDB, Git",
-    date: "2021-05-30",
+    date: "2021-02-03",
     link: "some link",
     image: "images/5g.png",
     isFeatured: true,

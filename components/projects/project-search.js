@@ -1,20 +1,27 @@
 import React from "react";
 import { useRef } from "react";
+import { useRouter } from "next/router";
 
 import Button from "../ui/button";
 import classes from "./project-search.module.css";
 import styles from "../../styles/shame.module.css";
 
 export default function ProjectSearch(props) {
+  const router = useRouter();
   const monthInputRef = useRef();
   const yearInputRef = useRef();
+
+  const findProjectHandler = (year, month) => {
+    const filterdProjectFullPath = `/projects/${year}/${month}`;
+    router.push(filterdProjectFullPath);
+  };
 
   const projectSubmitHandler = (event) => {
     event.preventDefault();
     const selectedMonth = monthInputRef.current.value;
     const selectedYear = yearInputRef.current.value;
 
-    props.onSearch(selectedYear, selectedMonth);
+    findProjectHandler(selectedYear, selectedMonth);
   };
 
   return (
@@ -58,7 +65,7 @@ export default function ProjectSearch(props) {
           </select>
         </div>
 
-        <Button>Search</Button>
+        <Button>Find</Button>
       </div>
     </form>
   );

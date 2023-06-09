@@ -1,25 +1,48 @@
 import React from "react";
+import { useRef } from "react";
 
 import Button from "../ui/button";
 import classes from "./project-search.module.css";
 import styles from "../../styles/shame.module.css";
 
-export default function ProjectSearch() {
+export default function ProjectSearch(props) {
+  const monthInputRef = useRef();
+  const yearInputRef = useRef();
+
+  const projectSubmitHandler = (event) => {
+    event.preventDefault();
+    const selectedMonth = monthInputRef.current.value;
+    const selectedYear = yearInputRef.current.value;
+
+    props.onSearch(selectedYear, selectedMonth);
+  };
+
   return (
-    <form className={` ${styles.container} ${classes.form}`}>
+    <form
+      className={` ${styles.container} ${classes.form}`}
+      onSubmit={projectSubmitHandler}
+    >
       <div className={classes["form__controls"]}>
         <div className={classes["form__control"]}>
           <label htmlFor="year">Year</label>
-          <select className={classes["form__select"]} id="year">
-            <option value="">2021</option>
-            <option value="">2022</option>
-            <option value="">2023</option>
-            <option value="">2024</option>
+          <select
+            className={classes["form__select"]}
+            id="year"
+            ref={yearInputRef}
+          >
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
           </select>
         </div>
         <div className={classes["form__control"]}>
           <label htmlFor="month">Month</label>
-          <select className={classes["form__select"]} id="month">
+          <select
+            className={classes["form__select"]}
+            id="month"
+            ref={monthInputRef}
+          >
             <option value="1">January</option>
             <option value="2">February</option>
             <option value="3">March</option>

@@ -155,7 +155,7 @@ export function getFilteredProject(dateFilter) {
   const { year, month } = dateFilter;
 
   let filteredProject = DUMMY_PROJECTS.filter((project) => {
-    const projectDate = new Date(project).date;
+    const projectDate = new Date(project.date);
     return (
       projectDate.getFullYear() === year && projectDate.getMonth() === month - 1
     );

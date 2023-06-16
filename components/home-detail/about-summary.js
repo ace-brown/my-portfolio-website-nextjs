@@ -1,16 +1,18 @@
-import classes from "./about-me-summary.module.css";
+import Link from "next/link";
+
+import classes from "./about-summary.module.css";
 import styles from "../../styles/shame.module.css";
 import Button from "../ui/button";
 
-export default function AboutMeSummary() {
+export default function AboutSummary() {
   return (
-    <div className={`${styles.container} ${classes["about-me-sum"]}`}>
+    <div className={`${styles.container} ${classes["about-sum"]}`}>
       <img
         src="./images/philipp.jpg"
-        className={classes["about-me-sum__img"]}
+        className={classes["about-sum__img"]}
       ></img>
-      <div className={classes["about-me-sum__content"]}>
-        <p className={classes["about-me-sum__text"]}>
+      <div className={classes["about-sum__content"]}>
+        <p className={classes["about-sum__text"]}>
           My name is Kazem Abdi Dehnoei, a web developer based in Stuttgart,
           Germany, with extensive experience in crafting responsive web apps
           using HTML, CSS, JavaScript, React, and Next.js. Alongside my
@@ -20,7 +22,9 @@ export default function AboutMeSummary() {
           for collaboration to create impactful digital solutions. Let's connect
           and transform our ideas into reality!
         </p>
-        <Button>Learn More</Button>
+        <Button>
+          <Link href="./about">Learn More</Link>
+        </Button>
       </div>
     </div>
   );

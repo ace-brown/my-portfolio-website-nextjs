@@ -1,41 +1,41 @@
-.about-me-sum {
+.about-sum {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   margin: 6rem auto;
 }
 
-.about-me-sum__content {
+.about-sum__content {
   padding: 2rem 0 0 2rem;
 }
 
-.about-me-sum__text {
+.about-sum__text {
   margin-bottom: 2rem;
   font-size: clamp(1rem, 4vw, 1.75rem);
 }
 
 @media (max-width: 50em) {
-  .about-me-sum {
+  .about-sum {
     grid-template-columns: 1fr;
     margin: 3rem auto;
     gap: 1rem;
   }
 
-  .about-me-sum__text {
+  .about-sum__text {
     margin-bottom: 1rem;
   }
 }
 
 @media (min-width: 50em) and (max-width: 100em) {
-  .about-me-sum {
+  .about-sum {
     gap: 3rem;
   }
 
-  .about-me-sum__content {
+  .about-sum__content {
     padding: 0;
   }
 
-  .about-me-sum__text {
+  .about-sum__text {
     margin-bottom: 2rem;
     font-size: clamp(1rem, 2vw, 1.5rem);
   }

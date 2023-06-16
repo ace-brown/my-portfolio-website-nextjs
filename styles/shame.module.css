@@ -23,3 +23,18 @@
     font-size: 3.125rem;
   }
 }
+
+/* about-me classes */
+.about {
+  margin: 15vh auto;
+  width: 45%;
+}
+
+.about h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: 3rem;
+}
+
+.about p {
+  font-size: clamp(1rem, 4vw, 1.4rem);
+}

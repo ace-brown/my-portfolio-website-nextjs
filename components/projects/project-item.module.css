@@ -20,6 +20,10 @@
   box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.15);
 }
 
+.project-item {
+  margin: 0 auto;
+}
+
 .card:hover,
 .card:focus-within {
   transform: scale(1.05);
@@ -36,7 +40,7 @@
 }
 
 .card-title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   position: relative;
   padding-bottom: 0.5rem;
   width: max-content;
@@ -77,6 +81,12 @@
     transform: translateY(55%);
     transition: transform 500ms ease;
   }
+
+  .card-title {
+    font-size: 1.5rem;
+    width: max-content;
+  }
+
   .card:hover .card-content,
   .card:focus-within .card-content {
     transform: translateY(0);

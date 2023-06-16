@@ -1,5 +1,11 @@
 .summary {
-  margin: 0 auto;
+  margin: 15vh auto;
+}
+
+.summary-title {
+  text-transform: capitalize;
+  margin: 2rem auto;
+  font-size: clamp(2.25rem, 4vw, 4rem);
 }
 
 .summary-content {
@@ -9,7 +15,7 @@
 }
 
 .summary-content h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
   margin-top: 0;
 }
 
@@ -22,22 +28,17 @@
 }
 
 .summary-img img {
-  max-width: 100%;
+  width: 100%;
   object-fit: cover;
   box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.4);
 }
 
 @media (min-width: 600px) {
-  .summary h1 {
-    font-size: 3rem;
-    margin: 3rem auto;
-  }
-
-  .summary-content h3 {
-    font-size: 2.2rem;
+  .summary-title {
+    margin-bottom: 5rem;
   }
 
   .summary-img {
-    margin: 3.5rem auto;
+    margin: 5rem auto;
   }
 }

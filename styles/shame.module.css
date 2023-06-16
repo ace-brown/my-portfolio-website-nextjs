@@ -8,10 +8,6 @@
   text-transform: uppercase;
 }
 
-.capital {
-  text-transform: capitalize;
-}
-
 @media (min-width: 700px) {
   .container {
     width: 70%;

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 
 import Button from "../ui/button";
@@ -18,7 +17,7 @@ export default function ProjectItem(props) {
   };
 
   return (
-    <li>
+    <li className={classes["project-item"]}>
       <article className={classes.card} style={imgageStyle}>
         <div className={classes["card-content"]}>
           <h2 className={classes["card-title"]}>{title}</h2>

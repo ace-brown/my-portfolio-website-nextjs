@@ -10,7 +10,7 @@ export default function ProjectSummary(props) {
   return (
     <div className={`${classes.summary} ${styles.container}`}>
       <div>
-        <h1 className={styles.capital}> Project name: {title}</h1>
+        <h1 className={classes["summary-title"]}> Project name: {title}</h1>
         <div className={classes["summary-content"]}>
           <h3>
             <span className={styles.bold}>Technology used: </span>

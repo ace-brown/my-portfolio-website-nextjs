@@ -4,11 +4,12 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   padding: 2rem;
-  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .source a {
   color: rgb(41, 152, 192);
+  margin-left: 4px;
 }
 
 .links-list {
@@ -43,4 +44,22 @@
 .links-list a:hover,
 .links-list a:focus {
   color: var(--color-primary-300-hover);
+}
+
+@media (max-width: 50em) {
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  .source {
+    margin-bottom: 3rem;
+  }
+
+  .links-list li {
+    padding-right: 1rem;
+  }
+
+  .contact-icon {
+    margin-right: 1rem;
+  }
 }

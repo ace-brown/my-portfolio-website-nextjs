@@ -11,7 +11,10 @@ export default function Contact() {
         <a href="https://github.com/ace-brown">https://github.com/ace-brown</a>
       </p>
       <p>
-        My LinkedIn: <a href=""></a>
+        My LinkedIn:{" "}
+        <a href="https://www.linkedin.com/in/kazem-abdi-dehnoei-3373b1a8/">
+          https://www.linkedin.com/in/kazem-abdi-dehnoei-3373b1a8
+        </a>
       </p>
       <p>Contact form is comming soon</p>
     </div>

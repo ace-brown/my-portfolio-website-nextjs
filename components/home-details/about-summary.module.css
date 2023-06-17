@@ -14,6 +14,17 @@
   font-size: clamp(1rem, 4vw, 1.75rem);
 }
 
+.about-sum__text a {
+  margin: 0 4px;
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+.about-sum__text a:hover,
+.about-sum__text a:focus {
+  text-decoration: none;
+}
+
 .about-sum {
   font-size: 1.2rem;
 }

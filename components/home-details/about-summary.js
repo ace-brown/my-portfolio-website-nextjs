@@ -19,7 +19,8 @@ export default function AboutSummary() {
           proficiency in web development, I am deeply passionate about
           blockchain technology and its potential for driving innovation. On my
           portfolio website, you can explore my projects and find opportunities
-          for collaboration to create impactful digital solutions. Let's connect
+          for collaboration to create impactful digital solutions. Let's{" "}
+          <Link href="./contact">connect</Link>
           and transform our ideas into reality!
         </p>
         <Button link="./about">Learn More</Button>

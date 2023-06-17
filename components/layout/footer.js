@@ -7,10 +7,10 @@ import { FaFacebook, FaPinterest, FaInstagramSquare } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <div className={classes.footer}>
+    <footer className={classes.footer}>
       <div className={classes.source}>
         <p>
-          Logo from <a href="https://app.logomakr.com/">LogoMakr.com/app</a>
+          Logo from<a href="https://app.logomakr.com/">LogoMakr.com/app</a>
         </p>
         <p>
           Video by
@@ -51,6 +51,6 @@ export default function Footer() {
           />
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

@@ -39,9 +39,7 @@ body {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  /* for sticking the footer to the bottom */
 }
 
 /* A elements that don't have a class get default styles */
@@ -77,25 +75,14 @@ svg {
 body {
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
-  --color-grey-50: hsl(265, 55%, 96%);
-  --color-grey-100: hsl(265, 19%, 88%);
-  --color-grey-200: hsl(265, 7%, 70%);
-  --color-grey-300: hsl(265, 6%, 66%);
-  --color-grey-400: hsl(265, 4%, 57%);
-  --color-grey-500: hsl(265, 3%, 53%);
-  --color-grey-600: hsl(265, 4%, 42%);
-  --color-grey-700: hsl(265, 4%, 31%);
-  --color-grey-800: hsl(276, 5%, 20%);
-  --color-grey-900: hsl(280, 5%, 13%);
 
-  --color-primary-50: #c8b3ce;
-  --color-primary-100: #a07aaa;
-  --color-primary-200: #884c97;
-  --color-primary-300-hover: #843897;
-  --color-primary-400: #732392;
-  --color-primary-500: #5a097a;
-  --color-primary-600: #61dbfb;
-  --color-primary-700: #3d0264;
+  --color-primary-50: #7dd1ee;
+  --color-primary-100: #3fbfe9;
+  --color-primary-200: #1cb8ec;
+  --color-primary-300-hover: #00b5f1;
+  --color-link: #1e90ff;
+
+  --color-cta: #d10e5f;
 
   --color-success-100: #a2f0bc;
   --color-success-500: #12bd4b;

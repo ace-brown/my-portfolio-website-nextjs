@@ -11,14 +11,12 @@ export default function ProjectDetailPage() {
   const project = getProjectById(projectId);
 
   return (
-    <>
-      <ProjectSummary
-        title={project.title}
-        descriptionFull={project.descriptionFull}
-        tech={project.tech}
-        link={project.link}
-        image={project.image}
-      />
-    </>
+    <ProjectSummary
+      title={project.title}
+      descriptionFull={project.descriptionFull}
+      tech={project.tech}
+      link={project.link}
+      image={project.image}
+    />
   );
 }

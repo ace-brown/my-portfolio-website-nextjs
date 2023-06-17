@@ -9,11 +9,10 @@
 }
 
 .project-sum__title {
-  font-size: clamp(1.5rem, 4vw, 4rem);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: 4rem;
 }
 
 .project-sum__btn {
-  font-size: 1.2rem;
   margin-top: 4rem;
 }

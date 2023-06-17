@@ -39,23 +39,23 @@
 }
 
 .content-title {
-  font-size: clamp(3rem, 6vw, 10rem);
+  font-size: clamp(3rem, 5vw, 9rem);
   color: var(--white);
-  font-weight: var(--fw-semi-bolds);
+  font-weight: var(--fw-bold);
 }
 
 .content-info {
-  font-size: clamp(1rem, 4vw, 3rem);
+  font-size: clamp(1rem, 4vw, 2.5rem);
   color: var(--white);
-  font-weight: var(--fw-semi-bolds);
+  font-weight: var(--fw-semi-bold);
 }
 
 .content a {
   display: inline-block;
   color: var(--white);
-  font-size: clamp(1rem, 4vw, 1.75rem);
+  font-size: clamp(1rem, 4vw, 1.5rem);
   border: 2px solid var(--white);
-  padding: 7px 35px;
+  padding: 7px 20px;
   border-radius: 50px;
   margin-top: 20px;
   transition: background-color 300ms ease;

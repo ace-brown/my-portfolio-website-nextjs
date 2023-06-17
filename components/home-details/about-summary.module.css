@@ -1,17 +1,17 @@
 .about-sum {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   margin: 6rem auto;
 }
 
 .about-sum__content {
-  padding: 1.5rem 0 0 1.5rem;
+  padding: 2rem 0 0 2rem;
 }
 
 .about-sum__text {
   margin-bottom: 2rem;
-  font-size: clamp(1rem, 4vw, 1.75rem);
+  font-size: clamp(1rem, 4vw, 1.5rem);
 }
 
 .about-sum__text a {
@@ -25,10 +25,6 @@
   text-decoration: none;
 }
 
-.about-sum {
-  font-size: 1.2rem;
-}
-
 @media (max-width: 50em) {
   .about-sum {
     grid-template-columns: 1fr;
@@ -39,15 +35,11 @@
 
 @media (min-width: 50em) and (max-width: 100em) {
   .about-sum {
-    gap: 3rem;
-  }
-
-  .about-sum__content {
-    padding: 0;
+    gap: 2rem;
   }
 
   .about-sum__text {
     margin-bottom: 2rem;
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 1.2rem);
   }
 }

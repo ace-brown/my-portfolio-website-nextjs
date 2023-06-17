@@ -17,12 +17,12 @@ export default function ProjectSummary(props) {
             {tech}
           </h3>
           <div>
-            <p style={{ marginBottom: "1.5rem" }}>
+            <p style={{ marginBottom: "1rem" }}>
               <span className={styles.bold}>Description: </span>
               {descriptionFull}
             </p>
             <p>
-              Link to the project's code:{" "}
+              Link to the project:{" "}
               <a className={classes.link} href={`${link}`} target="_blank">
                 {link}
               </a>

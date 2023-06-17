@@ -26,22 +26,22 @@
 
 /* about-me classes */
 .about {
-  margin: 15vh auto;
+  margin: 20vh auto;
   width: 45%;
 }
 
 .about h1 {
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: 3rem;
 }
 
 .about p {
-  font-size: clamp(1rem, 4vw, 1.4rem);
+  font-size: clamp(1rem, 4vw, 1.2rem);
 }
 
 /* contact styels */
 .contact {
-  margin: 15vh auto;
+  margin: 20vh auto;
 }
 
 .contact > * {
@@ -49,12 +49,12 @@
 }
 
 .contact h1 {
-  font-size: clamp(1.2rem, 4vw, 2.75rem);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: 2rem;
 }
 
 .contact p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .contact a {

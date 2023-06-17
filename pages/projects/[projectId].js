@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 
-import ProjectSummary from "../../components/project-detail/project-summary";
+import ProjectSummary from "../../components/project-details/project-summary";
 import { getProjectById } from "../../dummy-project";
 
 export default function ProjectDetailPage() {

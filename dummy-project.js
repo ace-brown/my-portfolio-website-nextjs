@@ -9,7 +9,7 @@ const DUMMY_PROJECTS = [
     date: "2021-02-12",
     link: "some link",
     image: "images/visited-places.jpeg",
-    isFeatured: false,
+    isFeatured: true,
   },
   {
     id: "p2",
@@ -57,7 +57,7 @@ const DUMMY_PROJECTS = [
     date: "2021-05-12",
     link: "some link",
     image: "images/visited-places.jpeg",
-    isFeatured: false,
+    isFeatured: true,
   },
   {
     id: "p6",
@@ -117,7 +117,7 @@ const DUMMY_PROJECTS = [
     date: "2021-05-30",
     link: "some link",
     image: "images/5g.png",
-    isFeatured: true,
+    isFeatured: false,
   },
   {
     id: "p11",
@@ -129,7 +129,7 @@ const DUMMY_PROJECTS = [
     date: "2021-02-03",
     link: "some link",
     image: "images/5g.png",
-    isFeatured: true,
+    isFeatured: false,
   },
   {
     id: "p12",
@@ -139,7 +139,7 @@ const DUMMY_PROJECTS = [
     date: "2021-05-30",
     link: "some link",
     image: "images/5g.png",
-    isFeatured: true,
+    isFeatured: false,
   },
 ];
 

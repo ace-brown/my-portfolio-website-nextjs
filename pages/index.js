@@ -4,9 +4,10 @@ import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { SidebarData } from "../components/layout/sidebar-data";
 
-import AboutSummary from "../components/home-detail/about-summary";
+import AboutSummary from "../components/home-details/about-summary";
 import classes from "../components/layout/main-header.module.css";
 import styles from "../components/layout/hero.module.css";
+import ProjectSummary from "../components/project-details/project-summary";
 
 export default function HomePage(props) {
   const [toggle, setToggle] = useState(false);
@@ -72,6 +73,7 @@ export default function HomePage(props) {
       </div>
 
       <AboutSummary />
+      <ProjectSummary />
     </>
   );
 }

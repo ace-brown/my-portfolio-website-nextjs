@@ -112,9 +112,3 @@
     transform: scaleX(0);
   }
 }
-
-@media (min-width: 700px) {
-  .project-list {
-    margin: 10rem auto;
-  }
-}

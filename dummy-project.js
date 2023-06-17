@@ -105,7 +105,7 @@ const DUMMY_PROJECTS = [
     date: "2021-05-30",
     link: "some link",
     image: "images/5g.png",
-    isFeatured: true,
+    isFeatured: false,
   },
   {
     id: "p10",

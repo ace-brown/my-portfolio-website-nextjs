@@ -6,7 +6,7 @@
 }
 
 .about-sum__content {
-  padding: 2rem 0 0 2rem;
+  padding: 1.5rem 0 0 1.5rem;
 }
 
 .about-sum__text {
@@ -14,15 +14,15 @@
   font-size: clamp(1rem, 4vw, 1.75rem);
 }
 
+.about-sum {
+  font-size: 1.2rem;
+}
+
 @media (max-width: 50em) {
   .about-sum {
     grid-template-columns: 1fr;
     margin: 3rem auto;
     gap: 1rem;
-  }
-
-  .about-sum__text {
-    margin-bottom: 1rem;
   }
 }
 

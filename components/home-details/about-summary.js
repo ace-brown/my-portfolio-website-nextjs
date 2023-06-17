@@ -8,7 +8,7 @@ export default function AboutSummary() {
   return (
     <div className={`${styles.container} ${classes["about-sum"]}`}>
       <img
-        src="./images/philipp.jpg"
+        src="./images/kazem-abdi.jpg"
         className={classes["about-sum__img"]}
       ></img>
       <div className={classes["about-sum__content"]}>
@@ -22,9 +22,7 @@ export default function AboutSummary() {
           for collaboration to create impactful digital solutions. Let's connect
           and transform our ideas into reality!
         </p>
-        <Button>
-          <Link href="./about">Learn More</Link>
-        </Button>
+        <Button link="./about">Learn More</Button>
       </div>
     </div>
   );

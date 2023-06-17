@@ -7,7 +7,7 @@ import { SidebarData } from "../components/layout/sidebar-data";
 import AboutSummary from "../components/home-details/about-summary";
 import classes from "../components/layout/main-header.module.css";
 import styles from "../components/layout/hero.module.css";
-import ProjectSummary from "../components/project-details/project-summary";
+import ProjectSummary from "../components/home-details/project-summary";
 
 export default function HomePage(props) {
   const [toggle, setToggle] = useState(false);

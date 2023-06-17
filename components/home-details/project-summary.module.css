@@ -1,0 +1,19 @@
+.project-sum {
+  margin: 15vh auto;
+}
+
+.project-sum__title,
+.project-sum__btn {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.project-sum__title {
+  font-size: clamp(1.5rem, 4vw, 4rem);
+  margin-bottom: 4rem;
+}
+
+.project-sum__btn {
+  font-size: 1.2rem;
+  margin-top: 4rem;
+}

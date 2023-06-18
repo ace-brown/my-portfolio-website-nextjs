@@ -4,7 +4,7 @@ const DUMMY_PROJECTS = [
     title: "Blockchain App",
     description: "You probably need no help with networking in general.",
     descriptionFull: `I have developed a decentralized application (DApp) that combines both front-end and back-end technologies. The front-end is built using HTML, CSS, and JS to provide a user-friendly interface. On the back-end, I utilized Solidity and Hardhat to create smart contracts and handle blockchain interactions.With the Blockchain App, users can seamlessly connect their wallets, such as MetaMask, to interact with the blockchain. They have the ability to fund their accounts with coins and withdraw them as needed. It offers a seamless experience for users to navigate the world of decentralized finance (DeFi) and leverage the benefits of blockchain technology.`,
-    tech: "HTML, CSS, JS, Solidity, Hardhat",
+    tech: "CSS, JS, Solidity, Hardhat",
     date: "July 23, 2022",
     link: "https://github.com/ace-brown/hardhat-fundme-frontend",
     image: "images/hardhat-img.png",

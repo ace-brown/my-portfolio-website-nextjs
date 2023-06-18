@@ -3,7 +3,7 @@
 .project-list {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   margin: 3rem auto;
 }
 
@@ -20,17 +20,13 @@
   box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.15);
 }
 
-.project-item {
-  margin: 0 auto;
-}
-
 .card:hover,
 .card:focus-within {
   transform: scale(1.05);
 }
 
 .card-content {
-  --padding: 1.5rem;
+  --padding: 1rem;
   padding: var(--padding);
   background: linear-gradient(
     hsl(0 0% 0% / 0),
@@ -110,5 +106,13 @@
 
   .card-title::after {
     transform: scaleX(0);
+  }
+}
+
+@media (max-width: 35em) {
+  /* margin: 0 auto should only be set for the mobile view for each item, if you 
+  set it on bigger screen sizes, the items got out of shape because of margin auto */
+  .project-item {
+    margin: 0 auto;
   }
 }

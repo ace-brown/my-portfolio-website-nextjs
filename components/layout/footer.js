@@ -37,18 +37,26 @@ export default function Footer() {
           </ul>
         </div>
         <div className={classes.contact}>
-          <AiFillTwitterCircle
-            className={`${classes["contact-icon"]} ${classes.twitter}`}
-          />
-          <FaInstagramSquare
-            className={`${classes["contact-icon"]} ${classes.insta} `}
-          />
-          <FaPinterest
-            className={`${classes["contact-icon"]} ${classes.pinterest}`}
-          />
-          <FaFacebook
-            className={`${classes["contact-icon"]} ${classes.facebook}`}
-          />
+          <a href="https://github.com/ace-brown">
+            <AiFillTwitterCircle
+              className={`${classes["contact-icon"]} ${classes.twitter}`}
+            />
+          </a>
+          <a>
+            <FaInstagramSquare
+              className={`${classes["contact-icon"]} ${classes.insta} `}
+            />
+          </a>
+          <a>
+            <FaPinterest
+              className={`${classes["contact-icon"]} ${classes.pinterest}`}
+            />
+          </a>
+          <a>
+            <FaFacebook
+              className={`${classes["contact-icon"]} ${classes.facebook}`}
+            />
+          </a>
         </div>
       </div>
     </footer>

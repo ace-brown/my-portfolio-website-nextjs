@@ -5,7 +5,7 @@ import styles from "../../styles/shame.module.css";
 
 export default function ProjectSummary(props) {
   const { title, tech, descriptionFull, link, image } = props;
-  const adjustedImg = `./${image}`;
+  const adjustedImg = `/${image}`;
 
   return (
     <div className={`${classes.summary} ${styles.container}`}>

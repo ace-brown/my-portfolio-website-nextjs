@@ -8,7 +8,12 @@ export default function ProjectDetailPage() {
   const router = useRouter();
 
   const projectId = router.query.projectId;
+  console.log(projectId);
   const project = getProjectById(projectId);
+
+  if (!project) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <ProjectSummary

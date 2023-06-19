@@ -23,7 +23,7 @@ export default function ProjectSummary(props) {
             </p>
             <p>
               Link to the project:{" "}
-              <a className={classes.link} href={`${link}`} target="_blank">
+              <a className={classes.link} href={`${link}`}>
                 {link}
               </a>
             </p>

@@ -24,7 +24,7 @@ export default function MainHeader(props) {
           <div className={classes["logo-and-menubars"]}>
             <Link href="/" className={classes.logo}>
               <img
-                src="/images/LogoMakr-9F7SZ3.png"
+                src="./images/LogoMakr-9F7SZ3.png"
                 alt="Logo"
                 width={120}
                 height={100}

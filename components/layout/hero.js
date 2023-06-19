@@ -7,7 +7,7 @@ export default function Hero() {
     <div>
       <h1>I am Kazem Abdi Dehnoei</h1>
       <video className={classes["video-bg"]} autoPlay muted loop>
-        <source src="/shore.mp4" type="video/mp4" />
+        <source src="./shore.mp4" type="video/mp4" />
       </video>
     </div>
   );

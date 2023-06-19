@@ -26,7 +26,7 @@ export default function HomePage(props) {
           <div className={classes["logo-and-menubars"]}>
             <Link href="/" className={classes.logo}>
               <img
-                src="/images/LogoMakr-4ytKli.png"
+                src="./images/LogoMakr-4ytKli.png"
                 alt="Logo"
                 width={120}
                 height={100}

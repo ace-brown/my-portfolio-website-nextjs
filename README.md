@@ -1,6 +1,7 @@
+# Visit my protfolio website online under: https://my-portfolio-website-nextjs.vercel.app/
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![poster](/public/images/portfolio.jpg)
+![poster](/public/i mages/portfolio.jpg)
 
 ## Getting Started
 

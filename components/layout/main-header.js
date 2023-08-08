@@ -18,7 +18,6 @@ export default function MainHeader(props) {
 
   return (
     <>
-      {/* Video by ROMAN ODINTSOV: https://www.pexels.com/video/drone-shot-of-the-coast-6662984/ */}
       {!HomePageRoute && (
         <header className={` ${classes.header}`}>
           <div className={classes["logo-and-menubars"]}>

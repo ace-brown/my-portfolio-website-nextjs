@@ -1,7 +1,10 @@
 import React, { Fragment } from "react";
+import Link from "next/link";
 
+import Button from "../ui/button";
 import classes from "./project-summary.module.css";
 import styles from "../../styles/shame.module.css";
+
 
 export default function ProjectSummary(props) {
   const { title, tech, descriptionFull, link, image } = props;
@@ -23,7 +26,7 @@ export default function ProjectSummary(props) {
             </p>
             <p>
               Link to the project:{" "}
-              <a className={classes.link} href={`${link}`}>
+              <a className={classes.link} href={`${link}`} target="_blank" rel="noopener noreferrer">
                 {link}
               </a>
             </p>
@@ -33,6 +36,7 @@ export default function ProjectSummary(props) {
       <div className={classes["summary-img"]}>
         <img src={adjustedImg}></img>
       </div>
+      <div className={classes['summary-button']}><Link href='/projects'><Button>Back to projects list</Button></Link></div>
     </div>
   );
 }

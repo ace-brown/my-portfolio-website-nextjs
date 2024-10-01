@@ -15,9 +15,9 @@ export default function AboutSummary() {
         <p className={classes["about-sum__text"]}>
           Hi there. My name is Kazem Abdi Dehnoei, a web developer based in
           Stuttgart, Germany, with extensive experience in crafting responsive
-          web apps using HTML, CSS, JavaScript, React, Next.js and MongoDB.
-          Alongside my proficiency in web development, I am deeply passionate
-          about blockchain technology and its potential for driving innovation.
+          web apps using HTML, CSS, JavaScript, React, Next.js as well as Rest
+          Api among others. Alongside my proficiency in web development, I am
+          also interested in innovative technologies such as Blockchain and AI.
           I am also fond of nature; that's why you see pictures of the sea and
           jungle. On my portfolio website, you can browse through my projects
           and get a glimpse of my skills and expertise. I'm always eager to

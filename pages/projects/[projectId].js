@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import ProjectSummary from "../../components/project-details/project-summary";
 import { getProjectById } from "../../dummy-project";
 
+
 export default function ProjectDetailPage() {
   const router = useRouter();
 
@@ -16,6 +17,7 @@ export default function ProjectDetailPage() {
   }
 
   return (
+
     <ProjectSummary
       title={project.title}
       descriptionFull={project.descriptionFull}
@@ -23,5 +25,7 @@ export default function ProjectDetailPage() {
       link={project.link}
       image={project.image}
     />
+
+
   );
 }

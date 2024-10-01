@@ -61,7 +61,7 @@ export default function FilteredProjectPage() {
     <Fragment>
       <ProjectSearch />
       <ResultsTitle />
-      <ProjectList items={filteredProject} />;
+      <ProjectList items={filteredProject} />
     </Fragment>
   );
 }

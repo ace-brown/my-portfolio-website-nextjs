@@ -1,65 +1,40 @@
-* {
-  box-sizing: border-box;
-}
-
-/* Andy bell css reset */
-
-/* Box sizing rules */
+/* Andy Bell CSS reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default margin */
 * {
   margin: 0;
   padding: 0;
   font: inherit;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
 }
 
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
 html,
 body {
-  height: 100%;
+  min-height: 100%;
 }
 
-/* Set core body defaults */
 body {
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
-  /* for sticking the footer to the bottom */
+  line-height: 1.6;
 }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Make images easier to work with */
 img,
 picture,
-svg {
+svg,
+video {
   max-width: 100%;
   display: block;
 }
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {
@@ -69,86 +44,115 @@ svg {
     scroll-behavior: auto !important;
   }
 }
-/* Finished andy bell */
+/* Finished Andy Bell */
 
-/* --font-title and --font-text are set in pages/_app.tsx (next/font) */
+/* --font-display, --font-body and --font-mono are set in pages/_app.tsx (next/font) */
 :root {
-  --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 0%);
+  --color-bg: #f5f6fa;
+  --color-bg-elevated: #ffffff;
+  --color-surface: rgb(10 20 40 / 0.035);
+  --color-surface-hover: rgb(10 20 40 / 0.06);
+  --color-border: rgb(10 20 40 / 0.1);
+  --color-border-strong: rgb(10 20 40 / 0.2);
+  --color-text: #0b0f19;
+  --color-text-muted: #596275;
+  --color-accent: #0a9fc4;
+  --color-accent-2: #5b4cf0;
+  --color-accent-3: #b14ae8;
+  --color-on-accent: #ffffff;
+  --color-glow: rgb(10 159 196 / 0.25);
+  --color-success: #0f9f58;
+  --color-error: #d0245e;
+  --color-shadow: rgb(15 23 42 / 0.12);
 
-  --color-primary-50: #7dd1ee;
-  --color-primary-100: #3fbfe9;
-  --color-primary-200: #1cb8ec;
-  --color-primary-300-hover: #00b5f1;
-  --color-link: #1e90ff;
+  /* hero: the page background masks the video so it only shows through the letters */
+  --hero-mask-ink: #000000;
+  --hero-mask-blend: screen;
 
-  --color-cta: #d10e5f;
+  --gradient-brand: linear-gradient(
+    120deg,
+    var(--color-accent) 0%,
+    var(--color-accent-2) 55%,
+    var(--color-accent-3) 100%
+  );
 
-  --color-success-100: #a2f0bc;
-  --color-success-500: #12bd4b;
-
-  --color-error-100: #f1acc9;
-  --color-error-500: #a10c4a;
-
-  /* theme-aware colors, swapped for dark mode below */
-  --color-bg: var(--white);
-  --color-text: var(--black);
-  --color-text-muted: hsl(0, 0%, 30%);
-  --color-surface: var(--white);
-  --color-border: hsl(0, 0%, 75%);
-  --color-shadow: rgb(0 0 0 / 0.3);
-
-  --fw-thin: 100;
-  --fw-extra-light: 200;
-  --fw-light: 300;
-  --fw-normal: 400;
-  --fw-medium: 500;
-  --fw-semi-bold: 600;
-  --fw-bold: 700;
-  --fw-extra-bold: 800;
-  --fw-heavy: 900;
-
-  --size-1: 0.25rem;
-  --size-2: 0.5rem;
-  --size-3: 0.75rem;
-  --size-4: 1rem;
-  --size-5: 1.25rem;
-  --size-6: 1.5rem;
-  --size-8: 2rem;
-  --size-16: 4rem;
-  --size-20: 5rem;
-  --size-40: 10rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --radius-sm: 0.75rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 2rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   color-scheme: light;
 }
 
 /* data-theme is set before first paint by the script in pages/_document.tsx */
 :root[data-theme="dark"] {
-  --color-bg: hsl(230, 25%, 9%);
-  --color-text: hsl(0, 0%, 92%);
-  --color-text-muted: hsl(0, 0%, 70%);
-  --color-surface: hsl(230, 22%, 14%);
-  --color-border: hsl(230, 15%, 30%);
-  --color-shadow: rgb(0 0 0 / 0.6);
-  --color-link: #5fb4ff;
+  --color-bg: #07090f;
+  --color-bg-elevated: #0d1119;
+  --color-surface: rgb(255 255 255 / 0.035);
+  --color-surface-hover: rgb(255 255 255 / 0.065);
+  --color-border: rgb(255 255 255 / 0.09);
+  --color-border-strong: rgb(255 255 255 / 0.2);
+  --color-text: #eef2f8;
+  --color-text-muted: #8a94a8;
+  --color-accent: #3fd0f5;
+  --color-accent-2: #7c6cff;
+  --color-accent-3: #c86bfa;
+  --color-on-accent: #04121a;
+  --color-glow: rgb(63 208 245 / 0.3);
+  --color-success: #34d399;
+  --color-error: #fb7185;
+  --color-shadow: rgb(0 0 0 / 0.5);
+
+  --hero-mask-ink: #ffffff;
+  --hero-mask-blend: multiply;
 
   color-scheme: dark;
 }
 
-body {
+/* clipping on html too stops mobile browsers widening the layout viewport if anything overflows */
+html {
   background-color: var(--color-bg);
+  overflow-x: clip;
+}
+
+/* no background on body: the html canvas paints it, so the z-index:-1 cursor glow stays visible */
+body {
   color: var(--color-text);
-  font-family: var(--font-text), sans-serif;
-  margin: 0;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  transition: color 400ms ease;
+}
+
+/* film grain over the whole page */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 h1,
 h2,
-h3 {
-  font-family: var(--font-title), sans-serif;
+h3,
+h4 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 
@@ -157,13 +161,64 @@ li {
 }
 
 button {
-  font: inherit;
   cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
 }
 
-.center {
-  margin: auto;
-  text-align: center;
+::selection {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  width: min(1200px, 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+.gradient-text {
+  background: var(--gradient-brand);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 8s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-shift {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 100% center;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 12px var(--color-accent);
 }
 
 .visually-hidden {
@@ -178,7 +233,16 @@ button {
   border: 0;
 }
 
-:focus-visible {
-  outline: 3px solid var(--color-primary-300-hover);
-  outline-offset: 2px;
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 999px;
+  border: 2px solid var(--color-bg);
 }

@@ -1,0 +1,130 @@
+.section {
+  padding-block: clamp(4rem, 10vw, 8rem);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+}
+
+/* each card sticks a little lower than the previous one, building a pile */
+.item {
+  position: sticky;
+  top: calc(6.5rem + var(--index) * 1.75rem);
+}
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  min-height: min(72vh, 640px);
+  padding: clamp(1.5rem, 3.5vw, 3rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background:
+    radial-gradient(
+      90% 70% at 100% 0%,
+      color-mix(in srgb, var(--color-accent-2) 14%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      70% 60% at 0% 100%,
+      color-mix(in srgb, var(--color-accent) 10%, transparent),
+      transparent 60%
+    ),
+    var(--color-bg-elevated);
+  box-shadow: 0 -20px 60px -30px var(--color-shadow);
+  transform-origin: top center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.counter {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}
+
+.title {
+  font-size: clamp(2rem, 4.5vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.title-link {
+  background-image: var(--gradient-brand);
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 600ms var(--ease-out);
+}
+
+.card:hover .title-link {
+  background-size: 100% 3px;
+}
+
+.excerpt {
+  color: var(--color-text-muted);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.date {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+}
+
+.more-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--color-text);
+  color: var(--color-bg);
+  transition:
+    transform 500ms var(--ease-out),
+    background-color 300ms ease;
+}
+
+.more:hover .more-icon {
+  transform: rotate(45deg);
+  background: var(--color-accent);
+}
+
+@media (max-width: 56em) {
+  .item {
+    position: relative;
+    top: 0;
+  }
+
+  .card {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .preview {
+    order: -1;
+  }
+}

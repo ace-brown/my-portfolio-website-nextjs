@@ -1,0 +1,20 @@
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.title {
+  margin-top: 1rem;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.aside {
+  max-width: 28rem;
+  color: var(--color-text-muted);
+}

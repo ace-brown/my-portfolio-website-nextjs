@@ -136,26 +136,32 @@ function yearOf(project: Project) {
   return new Date(project.date).getUTCFullYear();
 }
 
+// newest first
+const SORTED_PROJECTS = [...PROJECTS].sort((a, b) =>
+  b.date.localeCompare(a.date),
+);
+
 export function getFeaturedProjects() {
-  return PROJECTS.filter((project) => project.isFeatured);
+  return SORTED_PROJECTS.filter((project) => project.isFeatured);
 }
 
 export function getAllProjects() {
-  return PROJECTS;
+  return SORTED_PROJECTS;
 }
 
+/** Projects from a year, or from one month of that year when `month` is given. */
 export function getFilteredProjects({
   year,
   month,
 }: {
   year: number;
-  month: number;
+  month?: number;
 }) {
-  return PROJECTS.filter((project) => {
+  return SORTED_PROJECTS.filter((project) => {
     const projectDate = new Date(project.date);
     return (
       projectDate.getUTCFullYear() === year &&
-      projectDate.getUTCMonth() === month - 1
+      (month === undefined || projectDate.getUTCMonth() === month - 1)
     );
   });
 }
@@ -164,7 +170,38 @@ export function getProjectById(id: string) {
   return PROJECTS.find((project) => project.id === id);
 }
 
+/** The next project in date order, wrapping around to the newest. */
+export function getNextProject(id: string) {
+  const index = SORTED_PROJECTS.findIndex((project) => project.id === id);
+  return SORTED_PROJECTS[(index + 1) % SORTED_PROJECTS.length];
+}
+
 /** Every year that has at least one project, newest first. */
 export function getProjectYears() {
   return [...new Set(PROJECTS.map(yearOf))].sort((a, b) => b - a);
+}
+
+/** Months (1–12) of a year that have at least one project, in calendar order. */
+export function getProjectMonths(year: number) {
+  return [
+    ...new Set(
+      getFilteredProjects({ year }).map(
+        (project) => new Date(project.date).getUTCMonth() + 1,
+      ),
+    ),
+  ].sort((a, b) => a - b);
+}
+
+/** Whole years since the first project, for the "years building" stat. */
+export function getYearsBuilding() {
+  const firstYear = Math.min(...PROJECTS.map(yearOf));
+  return new Date().getUTCFullYear() - firstYear;
+}
+
+/** Tech names from a project's comma-separated `tech` string. */
+export function getTechList(project: Project) {
+  return project.tech
+    .split(/,| and /)
+    .map((tech) => tech.trim())
+    .filter(Boolean);
 }

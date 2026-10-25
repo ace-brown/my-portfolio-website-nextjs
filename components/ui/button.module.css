@@ -1,20 +1,98 @@
 .btn {
-  cursor: pointer;
-  background: var(--color-primary-100);
-  color: var(--white);
-  text-decoration: none;
-  border: none;
-  padding: 0.5em 1em;
-  text-transform: uppercase;
-  border-radius: 0.25em;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  transition:
+    color 350ms var(--ease-out),
+    border-color 350ms ease,
+    box-shadow 350ms ease;
 }
 
-.btn:hover,
-.btn:focus {
-  background: var(--color-primary-200);
+/* gradient fill that rises from the bottom on hover */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--gradient-brand);
+  border-radius: inherit;
+  transform: translateY(101%);
+  transition: transform 500ms var(--ease-out);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: translateY(0);
 }
 
 .btn:disabled {
-  opacity: 0.6;
+  opacity: 0.55;
   cursor: not-allowed;
+}
+
+.btn:disabled::before {
+  transform: translateY(101%);
+}
+
+.primary {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.primary:hover,
+.primary:focus-visible {
+  color: #fff;
+  box-shadow: 0 10px 40px -8px var(--color-glow);
+}
+
+.ghost {
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-text);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.ghost:hover,
+.ghost:focus-visible {
+  color: #fff;
+  border-color: transparent;
+}
+
+.sm {
+  padding: 0.6rem 1.15rem;
+  font-size: 0.9rem;
+}
+
+.md {
+  padding: 0.85rem 1.6rem;
+  font-size: 1rem;
+}
+
+.lg {
+  padding: 1.15rem 2.1rem;
+  font-size: 1.1rem;
+}
+
+.label {
+  position: relative;
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  font-size: 1.15em;
+  transition: transform 400ms var(--ease-out);
+}
+
+.btn:hover .arrow {
+  transform: translate(2px, -2px) rotate(45deg);
 }

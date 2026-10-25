@@ -1,15 +1,24 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { Lato, Montserrat } from "next/font/google";
+import { JetBrains_Mono, Manrope, Syne } from "next/font/google";
+import { MotionConfig } from "motion/react";
 
 import Layout from "../components/layout/layout";
 
+import "lenis/dist/lenis.css";
 import "../styles/globals.css";
 
-const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["700"] });
+const syne = Syne({ subsets: ["latin"], weight: ["600", "700", "800"] });
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
@@ -17,13 +26,17 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <style jsx global>{`
         :root {
-          --font-text: ${lato.style.fontFamily};
-          --font-title: ${montserrat.style.fontFamily};
+          --font-display: ${syne.style.fontFamily};
+          --font-body: ${manrope.style.fontFamily};
+          --font-mono: ${jetbrainsMono.style.fontFamily};
         }
       `}</style>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      {/* "user" turns transform animations off for prefers-reduced-motion */}
+      <MotionConfig reducedMotion="user">
+        <Layout pageKey={router.asPath}>
+          <Component {...pageProps} />
+        </Layout>
+      </MotionConfig>
     </>
   );
 }

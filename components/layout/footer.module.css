@@ -1,79 +1,167 @@
 .footer {
-  background-color: rgb(83, 73, 73);
-  color: rgb(248, 248, 248);
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  padding: 2rem;
-  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border);
+  background:
+    radial-gradient(60% 50% at 50% 100%, var(--color-glow), transparent 70%),
+    var(--color-bg);
 }
 
-.source a {
-  color: rgb(41, 152, 192);
-  margin-left: 4px;
+.cta {
+  padding-block: clamp(6rem, 14vw, 11rem);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.links-list {
-  margin-bottom: 1.5rem;
-}
-
-.links-list,
-.contact {
+.cta-inner {
   display: flex;
-  justify-content: center;
-}
-
-.links-list li {
-  padding-right: 2rem;
-}
-
-.contact a {
-  color: var(--white);
-}
-
-.contact a:hover,
-.contact a:focus {
-  color: var(--color-primary-300-hover);
-}
-
-.contact-icon {
-  margin-right: 2rem;
-  font-size: 1.75rem;
-}
-
-.copyright {
-  margin-top: 1.5rem;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+}
+
+.cta-title {
+  margin-block: 1.5rem 2.5rem;
+  font-size: clamp(2.6rem, 11vw, 9.5rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2.5rem;
+  padding-block: 4rem 2rem;
+}
+
+.brand {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.dot {
+  color: var(--color-accent);
+}
+
+.muted {
+  margin-top: 0.5rem;
+  max-width: 22rem;
+  color: var(--color-text-muted);
+}
+
+.clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.clock-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-success);
+}
+
+.heading {
+  margin-bottom: 1rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  transition: color 250ms ease;
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+.link-icon {
+  transition: transform 300ms var(--ease-out);
+}
+
+.link:hover .link-icon {
+  transform: translate(2px, -2px);
+}
+
+/* giant name that fades into the bottom of the page */
+.wordmark {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 9.6vw, 8.8rem);
+  line-height: 0.85;
+  letter-spacing: -0.055em;
+  text-align: center;
+  white-space: nowrap;
+  background: linear-gradient(180deg, var(--color-text), transparent 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.12;
+  user-select: none;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.5rem 2rem;
+  border-top: 1px solid var(--color-border);
   font-size: 0.9rem;
-  opacity: 0.8;
+  color: var(--color-text-muted);
 }
 
-.links-list li {
-  font-size: 1.1rem;
+.credit {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.links a {
-  color: rgb(248, 248, 248);
+.top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  transition: color 250ms ease;
 }
 
-.links-list a:hover,
-.links-list a:focus {
-  color: var(--color-primary-300-hover);
+.top:hover {
+  color: var(--color-accent);
 }
 
-@media (max-width: 50em) {
-  .footer {
-    grid-template-columns: 1fr;
+@media (max-width: 48em) {
+  .columns {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .source {
-    margin-bottom: 3rem;
-  }
-
-  .links-list li {
-    padding-right: 1rem;
-  }
-
-  .contact-icon {
-    margin-right: 1rem;
+  .about {
+    grid-column: 1 / -1;
   }
 }

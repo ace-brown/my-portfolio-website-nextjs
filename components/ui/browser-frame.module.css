@@ -1,0 +1,91 @@
+.frame {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  overflow: hidden;
+  box-shadow:
+    0 30px 60px -20px var(--color-shadow),
+    0 0 0 1px rgb(255 255 255 / 0.02) inset;
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.dots span {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--color-border-strong);
+}
+
+.dots span:nth-child(1) {
+  background: #ff5f57;
+}
+
+.dots span:nth-child(2) {
+  background: #febc2e;
+}
+
+.dots span:nth-child(3) {
+  background: #28c840;
+}
+
+.url {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 22rem;
+  margin-inline: auto;
+  padding: 0.2rem 0.9rem;
+  border-radius: 999px;
+  background: var(--color-surface-hover);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.viewport {
+  position: relative;
+}
+
+.frame[data-mode="pan"] .viewport {
+  aspect-ratio: 16 / 11;
+}
+
+/* full-page screenshots slowly scroll to the bottom while hovered */
+.pan-image {
+  object-fit: cover;
+  object-position: 50% 0%;
+  transition: object-position 5s cubic-bezier(0.45, 0, 0.25, 1);
+}
+
+.frame:hover .pan-image,
+:global(.pan-trigger):hover .pan-image,
+:global(.pan-trigger):focus-visible .pan-image {
+  object-position: 50% 100%;
+}
+
+.frame[data-mode="scroll"] .viewport {
+  max-height: min(80vh, 900px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.scroll-image {
+  width: 100%;
+  height: auto;
+}

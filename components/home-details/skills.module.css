@@ -1,41 +1,123 @@
 .skills {
-  margin: 6rem auto;
+  padding-block: clamp(4rem, 10vw, 8rem);
 }
 
-.skills__title {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  text-align: center;
-  margin-bottom: 3rem;
+.marquees {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  --marquee-gap: 1rem;
 }
 
-.skills__groups {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-}
-
-.skills__group {
-  background: var(--color-surface);
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
   border: 1px solid var(--color-border);
-  border-radius: var(--size-2);
-  padding: 1.5rem;
+  background: var(--color-surface);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.skills__group h3 {
+.marquee-item svg {
+  color: var(--color-accent);
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.cell-0 {
+  grid-column: span 4;
+}
+
+.cell-1 {
+  grid-column: span 2;
+}
+
+.cell-2 {
+  grid-column: span 2;
+}
+
+.cell-3 {
+  grid-column: span 4;
+}
+
+.card {
+  height: 100%;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.9rem;
+  background: var(--gradient-brand);
+  color: #fff;
   font-size: 1.25rem;
-  margin-bottom: 1rem;
+  box-shadow: 0 10px 30px -8px var(--color-glow);
 }
 
-.skills__list {
+.card-title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+}
+
+.card-text {
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+}
+
+.chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: 1.5rem;
 }
 
-.skills__list li {
-  padding: 0.25rem 0.75rem;
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
   border-radius: 999px;
-  background: var(--color-primary-100);
-  color: var(--white);
-  font-size: 0.95rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition:
+    border-color 250ms ease,
+    transform 250ms var(--ease-out);
+}
+
+.chip:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.chip svg {
+  color: var(--color-accent);
+}
+
+@media (max-width: 56em) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .cell-0,
+  .cell-1,
+  .cell-2,
+  .cell-3 {
+    grid-column: auto;
+  }
 }

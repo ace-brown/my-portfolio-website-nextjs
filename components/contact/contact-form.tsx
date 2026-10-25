@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { AnimatePresence, motion } from "motion/react";
 
 import Button from "../ui/button";
 
@@ -37,37 +38,42 @@ export default function ContactForm() {
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
-      <div className={classes.control}>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          autoComplete="name"
-          required
-          maxLength={100}
-        />
+      <div className={classes.row}>
+        <div className={classes.control}>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            autoComplete="name"
+            required
+            maxLength={100}
+            placeholder=" "
+          />
+          <label htmlFor="name">Your name</label>
+        </div>
+        <div className={classes.control}>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            maxLength={200}
+            placeholder=" "
+          />
+          <label htmlFor="email">Email address</label>
+        </div>
       </div>
       <div className={classes.control}>
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          required
-          maxLength={200}
-        />
-      </div>
-      <div className={classes.control}>
-        <label htmlFor="message">Message</label>
         <textarea
           id="message"
           name="message"
           rows={6}
           required
           maxLength={5000}
+          placeholder=" "
         />
+        <label htmlFor="message">Tell me about your project</label>
       </div>
       <div className={classes.honeypot} aria-hidden>
         <label htmlFor="company">Company</label>
@@ -79,15 +85,26 @@ export default function ContactForm() {
           autoComplete="off"
         />
       </div>
-      <Button type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Sending…" : "Send message"}
-      </Button>
-      <p
-        role="status"
-        className={status === "error" ? classes.error : classes.success}
-      >
-        {feedback}
-      </p>
+      <div className={classes.submit}>
+        <Button type="submit" size="lg" arrow disabled={status === "sending"}>
+          {status === "sending" ? "Sending…" : "Send message"}
+        </Button>
+        <p role="status" className={classes.status}>
+          <AnimatePresence mode="wait">
+            {feedback && (
+              <motion.span
+                key={feedback}
+                className={status === "error" ? classes.error : classes.success}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+              >
+                {feedback}
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </p>
+      </div>
     </form>
   );
 }

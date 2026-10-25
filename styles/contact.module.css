@@ -1,0 +1,114 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+  padding-bottom: clamp(5rem, 10vw, 8rem);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.label {
+  margin-bottom: 0.9rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transition:
+    border-color 300ms ease,
+    transform 400ms var(--ease-out);
+}
+
+.link:hover {
+  border-color: var(--color-accent);
+  transform: translateX(6px);
+}
+
+.link-icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.8rem;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.link-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.link-label {
+  font-weight: 700;
+}
+
+.link-handle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.arrow {
+  font-size: 1.3rem;
+  transition: transform 400ms var(--ease-out);
+}
+
+.link:hover .arrow {
+  transform: rotate(45deg);
+  color: var(--color-accent);
+}
+
+.location {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.form-card {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background:
+    radial-gradient(
+      80% 60% at 100% 0%,
+      color-mix(in srgb, var(--color-accent-2) 12%, transparent),
+      transparent 60%
+    ),
+    var(--color-bg-elevated);
+  box-shadow: 0 40px 80px -40px var(--color-shadow);
+}
+
+.form-title {
+  margin-bottom: 1.75rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+}
+
+@media (max-width: 56em) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

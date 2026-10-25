@@ -1,18 +1,23 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 
 import Seo from "../../components/seo";
-import ProjectSummary from "../../components/project-details/project-summary";
+import ProjectDetail from "../../components/project-details/project-detail";
 import {
   getAllProjects,
+  getNextProject,
   getProjectById,
   type Project,
 } from "../../data/projects";
 
 type ProjectDetailPageProps = {
   project: Project;
+  nextProject: Project;
 };
 
-export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
+export default function ProjectDetailPage({
+  project,
+  nextProject,
+}: ProjectDetailPageProps) {
   return (
     <>
       <Seo
@@ -20,7 +25,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         description={`${project.title}: ${project.tech}. ${project.descriptionFull.slice(0, 120).trim()}…`}
         image={project.image.src}
       />
-      <ProjectSummary project={project} />
+      <ProjectDetail project={project} nextProject={nextProject} />
     </>
   );
 }
@@ -43,5 +48,5 @@ export const getStaticProps: GetStaticProps<
     return { notFound: true };
   }
 
-  return { props: { project } };
+  return { props: { project, nextProject: getNextProject(project.id) } };
 };

@@ -1,0 +1,226 @@
+.header {
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding-inline: var(--gutter);
+  pointer-events: none;
+}
+
+.bar {
+  pointer-events: auto;
+  max-width: 1200px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.6rem 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition:
+    background-color 400ms ease,
+    border-color 400ms ease,
+    box-shadow 400ms ease,
+    backdrop-filter 400ms ease;
+}
+
+.bar--scrolled {
+  background: color-mix(in srgb, var(--color-bg) 70%, transparent);
+  border-color: var(--color-border);
+  box-shadow: 0 10px 40px -10px var(--color-shadow);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  box-shadow: 0 0 20px var(--color-glow);
+  transition: transform 600ms var(--ease-out);
+}
+
+.brand:hover .brand-mark {
+  transform: rotate(-12deg) scale(1.08);
+}
+
+.brand-dot {
+  color: var(--color-accent);
+}
+
+.nav ul {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.link {
+  position: relative;
+  display: block;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color 250ms ease;
+}
+
+.link:hover,
+.link[aria-current="page"] {
+  color: var(--color-text);
+}
+
+.link-text {
+  position: relative;
+  z-index: 1;
+}
+
+.pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--color-surface-hover);
+  border: 1px solid var(--color-border);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.burger {
+  display: none;
+  position: relative;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.burger span {
+  position: absolute;
+  left: 50%;
+  width: 1.1rem;
+  height: 2px;
+  margin-left: -0.55rem;
+  border-radius: 2px;
+  background: var(--color-text);
+  transition: transform 400ms var(--ease-out);
+}
+
+.burger span:first-child {
+  transform: translateY(-4px);
+}
+
+.burger span:last-child {
+  transform: translateY(4px);
+}
+
+.burger[data-open="true"] span:first-child {
+  transform: rotate(45deg);
+}
+
+.burger[data-open="true"] span:last-child {
+  transform: rotate(-45deg);
+}
+
+/* full-screen mobile menu */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 7rem var(--gutter) 2.5rem;
+  background:
+    radial-gradient(circle at 80% 10%, var(--color-glow), transparent 50%),
+    var(--color-bg);
+}
+
+.overlay-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.overlay-link {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.75rem, 13vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.overlay-link[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+.overlay-index {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-text-muted);
+}
+
+.overlay-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.overlay-socials {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 52em) {
+  .nav,
+  .cta {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .brand-name {
+    display: none;
+  }
+}

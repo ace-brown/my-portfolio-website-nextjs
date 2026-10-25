@@ -1,0 +1,35 @@
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+}
+
+.track {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--marquee-gap, 3rem);
+  padding-right: var(--marquee-gap, 3rem);
+  animation: scroll var(--duration) linear infinite;
+}
+
+.marquee[data-reverse="true"] .track {
+  animation-direction: reverse;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-100%);
+  }
+}

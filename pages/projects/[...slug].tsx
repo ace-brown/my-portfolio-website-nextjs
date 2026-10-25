@@ -1,11 +1,12 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 
 import Seo from "../../components/seo";
-import ProjectList from "../../components/projects/project-list";
-import ProjectSearch from "../../components/projects/project-search";
-import ResultsTitle from "../../components/projects/results-title";
+import PageHeader from "../../components/ui/page-header";
+import ProjectFilter from "../../components/projects/project-filter";
+import ProjectGrid from "../../components/projects/project-grid";
 import {
   getFilteredProjects,
+  getProjectMonths,
   getProjectYears,
   type Project,
 } from "../../data/projects";
@@ -13,8 +14,9 @@ import { monthName } from "../../lib/site";
 
 type FilteredProjectPageProps = {
   year: number;
-  month: number;
+  month: number | null;
   years: number[];
+  months: number[];
   projects: Project[];
 };
 
@@ -22,36 +24,43 @@ export default function FilteredProjectPage({
   year,
   month,
   years,
+  months,
   projects,
 }: FilteredProjectPageProps) {
+  const period = month ? `${monthName(month)} ${year}` : String(year);
+
   return (
     <>
-      <Seo title={`Projects from ${monthName(month)} ${year}`} />
-      {/* key resets the selects when navigating between filters */}
-      <ProjectSearch
-        key={`${year}-${month}`}
+      <Seo title={`Projects from ${period}`} />
+      <PageHeader
+        eyebrow={`Work · ${period}`}
+        title="Projects"
+        sup={projects.length}
+        intro={`Everything I built in ${period}.`}
+      />
+      <ProjectFilter
         years={years}
         selectedYear={year}
-        selectedMonth={month}
+        selectedMonth={month ?? undefined}
+        months={months}
       />
-      <ResultsTitle year={year} month={month} />
-      {projects.length === 0 ? (
-        <p className="center">No project found</p>
-      ) : (
-        <ProjectList items={projects} />
-      )}
+      <ProjectGrid
+        projects={projects}
+        emptyMessage={`No projects from ${period}.`}
+      />
     </>
   );
 }
 
-// One page per month for every year that has projects, e.g. /projects/2022/7.
-// Anything else (invalid dates, other years) gets the 404 page.
+// /projects/<year> for every year with projects, plus /projects/<year>/<month>
+// for all 12 months so older links keep working. Anything else gets the 404 page.
 export const getStaticPaths: GetStaticPaths = () => ({
-  paths: getProjectYears().flatMap((year) =>
-    Array.from({ length: 12 }, (_, index) => ({
+  paths: getProjectYears().flatMap((year) => [
+    { params: { slug: [String(year)] } },
+    ...Array.from({ length: 12 }, (_, index) => ({
       params: { slug: [String(year), String(index + 1)] },
     })),
-  ),
+  ]),
   fallback: false,
 });
 
@@ -60,14 +69,15 @@ export const getStaticProps: GetStaticProps<
   { slug: string[] }
 > = ({ params }) => {
   const year = Number(params?.slug[0]);
-  const month = Number(params?.slug[1]);
+  const month = params?.slug[1] ? Number(params.slug[1]) : null;
 
   return {
     props: {
       year,
       month,
       years: getProjectYears(),
-      projects: getFilteredProjects({ year, month }),
+      months: getProjectMonths(year),
+      projects: getFilteredProjects({ year, month: month ?? undefined }),
     },
   };
 };

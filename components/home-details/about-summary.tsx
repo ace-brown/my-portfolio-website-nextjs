@@ -1,36 +1,71 @@
-import Link from "next/link";
 import Image from "next/image";
 
-import classes from "./about-summary.module.css";
-import styles from "../../styles/shame.module.css";
 import Button from "../ui/button";
+import Counter from "../ui/counter";
+import Reveal from "../ui/reveal";
+import ScrollRevealText from "../ui/scroll-reveal-text";
+import { getAllProjects, getYearsBuilding } from "../../data/projects";
+import { ALL_SKILLS } from "../../data/skills";
 import profileImg from "../../public/images/kazem-abdi.jpg";
 
+import classes from "./about-summary.module.css";
+
+const STATEMENT =
+  "I'm Kazem, a web developer based in Stuttgart. I craft responsive web apps with React, Next.js and Node.js, and I'm fascinated by new technologies like blockchain and AI. When I'm not coding, you'll find me somewhere between the sea and the forest.";
+
 export default function AboutSummary() {
+  const stats = [
+    { value: getAllProjects().length, suffix: "", label: "Projects built" },
+    { value: ALL_SKILLS.length, suffix: "+", label: "Technologies" },
+    { value: getYearsBuilding(), suffix: "+", label: "Years building" },
+  ];
+
   return (
-    <section className={`${styles.container} ${classes["about-sum"]}`}>
-      <Image
-        src={profileImg}
-        alt="Portrait of Kazem Abdi Dehnoei"
-        className={classes["about-sum__img"]}
-        sizes="(max-width: 50em) 90vw, 35vw"
-        placeholder="blur"
-      />
-      <div className={classes["about-sum__content"]}>
-        <p className={classes["about-sum__text"]}>
-          Hi there. My name is Kazem Abdi Dehnoei, a web developer based in
-          Stuttgart, Germany, with extensive experience in crafting responsive
-          web apps using HTML, CSS, JavaScript, React, Next.js as well as REST
-          APIs among others. Alongside my proficiency in web development, I am
-          also interested in innovative technologies such as Blockchain and AI.
-          I am also fond of nature; that&apos;s why you see pictures of the sea
-          and jungle. On my portfolio website, you can browse through my
-          projects and get a glimpse of my skills and expertise. I&apos;m always
-          eager to connect with fellow professionals and discuss exciting
-          opportunities. Let&apos;s <Link href="/contact">connect</Link>
-          and transform our ideas into reality!
-        </p>
-        <Button link="/about">Learn More</Button>
+    <section className={classes.about} aria-labelledby="about-title">
+      <div className={`container ${classes.grid}`}>
+        <Reveal className={classes.portrait}>
+          <div className={classes["portrait-frame"]}>
+            <Image
+              src={profileImg}
+              alt="Portrait of Kazem Abdi Dehnoei"
+              sizes="(max-width: 56em) 80vw, 30vw"
+              placeholder="blur"
+              className={classes["portrait-img"]}
+            />
+          </div>
+          <p className={classes.badge}>
+            <span className={classes["badge-dot"]} />
+            Based in Stuttgart, DE
+          </p>
+        </Reveal>
+
+        <div>
+          <p className="eyebrow" id="about-title">
+            01 — About
+          </p>
+          <ScrollRevealText text={STATEMENT} className={classes.statement} />
+
+          <dl className={classes.stats}>
+            {stats.map((stat, index) => (
+              <Reveal
+                key={stat.label}
+                delay={index * 0.1}
+                className={classes.stat}
+              >
+                <dt>{stat.label}</dt>
+                <dd>
+                  <Counter value={stat.value} suffix={stat.suffix} />
+                </dd>
+              </Reveal>
+            ))}
+          </dl>
+
+          <Reveal delay={0.2}>
+            <Button link="/about" variant="ghost" arrow>
+              More about me
+            </Button>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

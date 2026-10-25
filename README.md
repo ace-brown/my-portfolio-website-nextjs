@@ -8,8 +8,9 @@ Personal portfolio of Kazem Abdi Dehnoei, a web developer based in Stuttgart, Ge
 
 ## Features
 
-- Home page with a video hero, about section, skills and featured projects
-- Project gallery with a year/month filter (`/projects/2022/7`) and a statically generated detail page per project
+- Video hero where the ocean plays through the letters of my name
+- Smooth scrolling, scroll-linked text reveals, stacking project cards, 3D-tilt cards, magnetic buttons and a cursor glow (all toned down for `prefers-reduced-motion`)
+- Project gallery with year/month filters (`/projects/2022`, `/projects/2022/7`) and a statically generated detail page per project
 - Light and dark mode (follows the system setting, with a toggle in the header)
 - Contact form that sends email through [Resend](https://resend.com)
 - Per-page SEO metadata, Open Graph tags, `sitemap.xml` and `robots.txt`
@@ -17,7 +18,7 @@ Personal portfolio of Kazem Abdi Dehnoei, a web developer based in Stuttgart, Ge
 
 ## Tech stack
 
-Next.js 16 (Pages Router) · React 19 · TypeScript · CSS Modules · react-icons · ESLint · Prettier
+Next.js 16 (Pages Router) · React 19 · TypeScript · CSS Modules · Motion · Lenis · react-icons · ESLint · Prettier
 
 ## Getting started
 
@@ -48,5 +49,4 @@ Copy `.env.example` to `.env.local` and set `RESEND_API_KEY`. Without it the for
 
 ## Credits
 
-- Logo: [LogoMakr](https://app.logomakr.com/)
 - Hero video: [Roman Odintsov on Pexels](https://www.pexels.com/video/drone-shot-of-the-coast-6662984/)

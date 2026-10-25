@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { AnimatePresence, motion } from "motion/react";
+import { FiMoon, FiSun } from "react-icons/fi";
+
+import classes from "./theme-toggle.module.css";
 
 type Theme = "light" | "dark";
 
-export default function ThemeToggle({ className }: { className?: string }) {
+export default function ThemeToggle() {
   // null until mounted: the real theme is only known in the browser
   const [theme, setTheme] = useState<Theme | null>(null);
 
@@ -31,13 +34,24 @@ export default function ThemeToggle({ className }: { className?: string }) {
   return (
     <button
       type="button"
-      className={className}
+      className={classes.toggle}
       onClick={toggleHandler}
       aria-label={label}
       title={label}
       disabled={theme === null}
     >
-      {theme === "dark" ? <FaSun aria-hidden /> : <FaMoon aria-hidden />}
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={theme ?? "unknown"}
+          className={classes.icon}
+          initial={{ rotate: -90, scale: 0, opacity: 0 }}
+          animate={{ rotate: 0, scale: 1, opacity: 1 }}
+          exit={{ rotate: 90, scale: 0, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {theme === "dark" ? <FiSun aria-hidden /> : <FiMoon aria-hidden />}
+        </motion.span>
+      </AnimatePresence>
     </button>
   );
 }

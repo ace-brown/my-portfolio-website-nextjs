@@ -1,0 +1,85 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  padding-block: 9rem 5rem;
+  text-align: center;
+}
+
+/* glitch: two offset copies of the number flicker in accent colours */
+.code {
+  position: relative;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(5.5rem, 28vw, 20rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.code::before,
+.code::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.code::before {
+  background: var(--color-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: glitch 3s infinite steps(1);
+  clip-path: inset(10% 0 60% 0);
+}
+
+.code::after {
+  background: var(--color-accent-3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: glitch 2.4s infinite reverse steps(1);
+  clip-path: inset(55% 0 15% 0);
+}
+
+@keyframes glitch {
+  0%,
+  88%,
+  100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+  90% {
+    transform: translate(-6px, 2px);
+    opacity: 1;
+  }
+  94% {
+    transform: translate(6px, -2px);
+    opacity: 1;
+  }
+}
+
+.title {
+  margin-top: 2rem;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+}
+
+.text {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}

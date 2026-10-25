@@ -1,0 +1,22 @@
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 1.1rem;
+  transition:
+    border-color 250ms ease,
+    background-color 250ms ease;
+}
+
+.toggle:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-hover);
+}
+
+.icon {
+  display: grid;
+}

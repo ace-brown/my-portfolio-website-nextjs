@@ -23,7 +23,7 @@ export default function ProjectDetail({
   project,
   nextProject,
 }: ProjectDetailProps) {
-  const { title, descriptionFull, link, image, date } = project;
+  const { title, descriptionFull, link, repo, image, date } = project;
   const isCode = link.includes("github.com");
   const longestWord = Math.max(...title.split(" ").map((word) => word.length));
   const paragraphs = descriptionFull
@@ -70,11 +70,16 @@ export default function ProjectDetail({
             </dd>
           </div>
           <div>
-            <dt className="visually-hidden">Link</dt>
-            <dd>
+            <dt className="visually-hidden">Links</dt>
+            <dd className={classes.links}>
               <Button link={link} external arrow>
                 {isCode ? "View code" : "Visit site"}
               </Button>
+              {repo && (
+                <Button link={repo} external variant="ghost" arrow>
+                  View code
+                </Button>
+              )}
             </dd>
           </div>
         </motion.dl>

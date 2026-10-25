@@ -9,7 +9,8 @@ Personal portfolio of Kazem Abdi Dehnoei, a web developer based in Stuttgart, Ge
 ## Features
 
 - Video hero where the ocean plays through the letters of my name
-- Smooth scrolling, scroll-linked text reveals, stacking project cards, 3D-tilt cards, magnetic buttons and a cursor glow (all toned down for `prefers-reduced-motion`)
+- Smooth scrolling, scroll-linked text reveals, stacking project cards, 3D-tilt cards, rolling-label buttons and a cursor glow (all toned down for `prefers-reduced-motion`)
+- Professional experience, skills, education and languages from my CV
 - Project gallery with year/month filters (`/projects/2022`, `/projects/2022/7`) and a statically generated detail page per project
 - Light and dark mode (follows the system setting, with a toggle in the header)
 - Contact form that sends email through [Resend](https://resend.com)
@@ -39,7 +40,7 @@ npm run format     # Prettier
 
 ### Contact form
 
-Copy `.env.example` to `.env.local` and set `RESEND_API_KEY`. Without it the form shows a message asking visitors to email directly. To deliver to any address, verify a domain in Resend and set `CONTACT_FROM_EMAIL`. Add the same variables in the Vercel project settings for production.
+Copy `.env.example` to `.env.local` and set `RESEND_API_KEY` and `CONTACT_TO_EMAIL` (the inbox that receives messages; it is kept out of the code so it never appears on the site). Without both, the form asks visitors to reach out on LinkedIn. With Resend's test sender, `CONTACT_TO_EMAIL` must be the email of your Resend account; to deliver anywhere else, verify a domain in Resend and set `CONTACT_FROM_EMAIL`. Add the same variables in the Vercel project settings for production.
 
 ## Adding a project
 

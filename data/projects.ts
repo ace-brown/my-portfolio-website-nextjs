@@ -10,6 +10,7 @@ import playingWithGridImg from "../public/images/playing-with-grid.jpg";
 import germanTodoImg from "../public/images/german-todo.png";
 import imgShopImg from "../public/images/img-shop.jpg";
 import hardhatImg from "../public/images/hardhat-img.png";
+import kraftmeisterImg from "../public/images/kraftmeister.jpg";
 
 export type Project = {
   id: string;
@@ -19,16 +20,31 @@ export type Project = {
   /** ISO date, YYYY-MM-DD */
   date: string;
   link: string;
+  /** source code, when `link` points somewhere else (e.g. a live demo) */
+  repo?: string;
   image: StaticImageData;
   isFeatured: boolean;
 };
 
 const PROJECTS: Project[] = [
   {
+    id: "p11",
+    title: "Kraftmeister",
+    descriptionFull: `A full-stack SaaS for German trade businesses (Handwerk) that I designed, built and deployed on my own: jobs, customers, quotes and invoices in one place instead of spreadsheets and paper. I built the whole system myself, from the data model, REST API and authentication to the frontend, deployment and CI/CD, and the source code is public so you can review how I work.
+       An AI service in Python/FastAPI generates job descriptions, quotes and invoice items with structured LLM output (Pydantic), turns voice notes into job notes with Whisper, and analyzes site photos with vision models. An AI agent has fast, secure multi-tenant access to each business's own data.
+       The NestJS backend uses Prisma, PostgreSQL and Redis with JWT access/refresh authentication and a documented REST API. The mobile-first frontend is built with Next.js 16, TanStack Query, React Hook Form, Zod, Tailwind and shadcn/ui, and the app runs with Docker Compose and Nginx, with GitHub Actions checking every change.`,
+    tech: "NestJS, Prisma, PostgreSQL, Redis, Next.js, FastAPI, Whisper, LLMs",
+    date: "2026-05-14",
+    link: "https://kraftmeister.org",
+    repo: "https://github.com/ace-brown/Kraftmeister",
+    image: kraftmeisterImg,
+    isFeatured: true,
+  },
+  {
     id: "p1",
     title: "payperchain.io",
     descriptionFull:
-      "Payperchain.io is a responsive website I developed using Next.js with the app router feature during my employment. The site includes internationalization for both German and English languages, supports light and dark mode, and integrates Resend for email functionality. It is optimized for all devices with a modern, user-friendly design. The project demonstrates advanced Next.js capabilities and ensures a seamless user experience across different platforms.",
+      "Payperchain.io is the company website I rebuilt from TYPO3 as a responsive Next.js (App Router) site while working at PayperChain. The site includes internationalization for both German and English languages, supports light and dark mode, and integrates Resend for email functionality. It is optimized for all devices with a modern, user-friendly design. The project demonstrates advanced Next.js capabilities and ensures a seamless user experience across different platforms.",
     tech: "Next.js, CSS, next-intl, Resend",
     date: "2024-08-12",
     link: "https://payperchain.io",
@@ -38,7 +54,7 @@ const PROJECTS: Project[] = [
   {
     id: "p2",
     title: "5G Syner Website",
-    descriptionFull: `During my previous working student position at Fraunhofer IAT Institute, I had the opportunity to develop a website called "5G Synergieregion". This website was created using HTML, CSS, JavaScript, PHP, and the WordPress API. The main features of the website included a search functionality, captivating animations, and an image slider. The search functionality allowed users to easily find relevant information within the website. The animations added an engaging and interactive element to enhance the user experience. Additionally, the image slider showcased visually appealing content to capture the attention of visitors. Overall, the project provided valuable experience in utilizing various web technologies to create an informative and visually appealing website.`,
+    descriptionFull: `As a student assistant at IAT, University of Stuttgart, in cooperation with Fraunhofer IAO, I developed the "5G Synergieregion" website. This website was created using HTML, CSS, JavaScript, PHP, and the WordPress API. The main features of the website included a search functionality, captivating animations, and an image slider. The search functionality allowed users to easily find relevant information within the website. The animations added an engaging and interactive element to enhance the user experience. Additionally, the image slider showcased visually appealing content to capture the attention of visitors. Overall, the project provided valuable experience in utilizing various web technologies to create an informative and visually appealing website.`,
     tech: "HTML, CSS, JavaScript, PHP",
     date: "2022-09-03",
     link: "https://fly5g.de",
@@ -190,12 +206,6 @@ export function getProjectMonths(year: number) {
       ),
     ),
   ].sort((a, b) => a - b);
-}
-
-/** Whole years since the first project, for the "years building" stat. */
-export function getYearsBuilding() {
-  const firstYear = Math.min(...PROJECTS.map(yearOf));
-  return new Date().getUTCFullYear() - firstYear;
 }
 
 /** Tech names from a project's comma-separated `tech` string. */

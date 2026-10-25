@@ -13,7 +13,7 @@ import classes from "./hero.module.css";
 const VIDEO_QUERY =
   "(min-width: 50em) and (prefers-reduced-motion: no-preference)";
 
-const ROTATING_WORDS = ["responsive", "accessible", "fast", "delightful"];
+const ROTATING_WORDS = ["secure", "fast", "intelligent", "delightful"];
 
 function RotatingWord() {
   const [index, setIndex] = useState(0);
@@ -129,11 +129,16 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8 }}
         >
-          <p className="eyebrow">Web developer — Stuttgart, Germany</p>
-          <p className={classes.coords}>48.7758° N, 9.1829° E</p>
+          <p className="eyebrow">Full-stack engineer — Stuttgart, Germany</p>
+          <p className={classes.status}>
+            <span className={classes["status-dot"]} />
+            Available now · can start immediately
+          </p>
         </motion.div>
 
-        <h1 className="visually-hidden">Kazem Abdi Dehnoei, web developer</h1>
+        <h1 className="visually-hidden">
+          Kazem Abdi Dehnoei, full-stack engineer
+        </h1>
 
         <motion.div
           className={classes.bottom}
@@ -142,8 +147,8 @@ export default function Hero() {
           transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className={classes.tagline}>
-            I build web apps with React, Next.js &amp; Node.js that are{" "}
-            <RotatingWord />
+            I build full-stack products with TypeScript, Python &amp; AI that
+            are <RotatingWord />
           </p>
           <div className={classes.ctas}>
             <Button link="/projects" size="lg" arrow>

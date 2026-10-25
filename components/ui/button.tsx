@@ -1,11 +1,8 @@
 import Link from "next/link";
-import type { PointerEvent, ReactNode } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
+import type { ReactNode } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
 import classes from "./button.module.css";
-
-const MotionLink = motion.create(Link);
 
 type ButtonProps = {
   children: ReactNode;
@@ -33,36 +30,19 @@ export default function Button({
   type = "button",
   disabled,
 }: ButtonProps) {
-  // magnetic effect: the button leans towards the mouse pointer
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 250, damping: 18, mass: 0.4 });
-  const springY = useSpring(y, { stiffness: 250, damping: 18, mass: 0.4 });
+  const classNames = [classes.btn, classes[variant], classes[size], className]
+    .filter(Boolean)
+    .join(" ");
 
-  const moveHandler = (event: PointerEvent<HTMLElement>) => {
-    if (event.pointerType !== "mouse") return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    x.set((event.clientX - (rect.left + rect.width / 2)) * 0.25);
-    y.set((event.clientY - (rect.top + rect.height / 2)) * 0.35);
-  };
-
-  const leaveHandler = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  const sharedProps = {
-    className: [classes.btn, classes[variant], classes[size], className]
-      .filter(Boolean)
-      .join(" "),
-    style: { x: springX, y: springY },
-    onPointerMove: moveHandler,
-    onPointerLeave: leaveHandler,
-  };
-
+  // on hover the label rolls up and an identical copy slides in from below
   const content = (
     <>
-      <span className={classes.label}>{children}</span>
+      <span className={classes.label}>
+        <span className={classes["label-text"]}>{children}</span>
+        <span className={classes["label-text"]} aria-hidden>
+          {children}
+        </span>
+      </span>
       {arrow && (
         <span className={classes.arrow} aria-hidden>
           <FiArrowUpRight />
@@ -73,33 +53,33 @@ export default function Button({
 
   if (link && external) {
     return (
-      <motion.a
+      <a
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        {...sharedProps}
+        className={classNames}
       >
         {content}
-      </motion.a>
+      </a>
     );
   }
 
   if (link) {
     return (
-      <MotionLink href={link} {...sharedProps}>
+      <Link href={link} className={classNames}>
         {content}
-      </MotionLink>
+      </Link>
     );
   }
 
   return (
-    <motion.button
+    <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      {...sharedProps}
+      className={classNames}
     >
       {content}
-    </motion.button>
+    </button>
   );
 }

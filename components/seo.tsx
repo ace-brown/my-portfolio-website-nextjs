@@ -17,7 +17,7 @@ export default function Seo({
   const router = useRouter();
   const fullTitle = title
     ? `${title} | ${SITE.shortName}`
-    : `${SITE.name} – Web Developer`;
+    : `${SITE.name} – Full-Stack Engineer`;
   const url = `${SITE.url}${router.asPath === "/" ? "" : router.asPath.split(/[?#]/)[0]}`;
   const imageUrl = image.startsWith("http") ? image : `${SITE.url}${image}`;
 

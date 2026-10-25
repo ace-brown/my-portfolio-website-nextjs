@@ -36,7 +36,10 @@ type StackCardProps = {
 function excerpt(text: string, length = 190) {
   const clean = text.replace(/\s+/g, " ").trim();
   return clean.length > length
-    ? `${clean.slice(0, length).replace(/\s\S*$/, "")}…`
+    ? `${clean
+        .slice(0, length)
+        .replace(/\s\S*$/, "")
+        .replace(/[\s.,;:]+$/, "")}…`
     : clean;
 }
 
@@ -115,7 +118,7 @@ export default function FeaturedProjects() {
       <div className="container">
         <SectionHeading
           id="work-title"
-          eyebrow="03 — Selected work"
+          eyebrow="04 — Selected work"
           title="Featured projects"
           aside={
             <Button link="/projects" variant="ghost" arrow>

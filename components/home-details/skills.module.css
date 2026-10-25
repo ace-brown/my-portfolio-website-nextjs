@@ -34,20 +34,24 @@
   gap: 1rem;
 }
 
-.cell-0 {
-  grid-column: span 4;
-}
-
+/* bento layout for the 7 groups: 3+3 / 4+2 / 2+2+2 */
+.cell-0,
 .cell-1 {
-  grid-column: span 2;
+  grid-column: span 3;
 }
 
 .cell-2 {
-  grid-column: span 2;
+  grid-column: span 4;
 }
 
 .cell-3 {
-  grid-column: span 4;
+  grid-column: span 2;
+}
+
+.cell-4,
+.cell-5,
+.cell-6 {
+  grid-column: span 2;
 }
 
 .card {
@@ -117,7 +121,10 @@
   .cell-0,
   .cell-1,
   .cell-2,
-  .cell-3 {
+  .cell-3,
+  .cell-4,
+  .cell-5,
+  .cell-6 {
     grid-column: auto;
   }
 }

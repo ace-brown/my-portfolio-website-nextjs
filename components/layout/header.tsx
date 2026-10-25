@@ -185,7 +185,9 @@ export default function Header() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+              <Link href="/contact" onClick={() => setMenuOpen(false)}>
+                Send me a message
+              </Link>
               <div className={classes["overlay-socials"]}>
                 <a
                   href={SITE.github}

@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { SITE } from "../../lib/site";
-
 type ContactResponse = { message: string };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -42,10 +40,13 @@ export default async function handler(
     });
   }
 
+  // the recipient address only lives in server env vars, never in the site's code
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
+  const to = process.env.CONTACT_TO_EMAIL;
+  if (!apiKey || !to) {
     return res.status(503).json({
-      message: `The contact form is not set up yet. Please email ${SITE.email} instead.`,
+      message:
+        "The contact form is not available right now. Please reach out on LinkedIn instead.",
     });
   }
 
@@ -58,7 +59,7 @@ export default async function handler(
     body: JSON.stringify({
       from:
         process.env.CONTACT_FROM_EMAIL || "Portfolio <onboarding@resend.dev>",
-      to: process.env.CONTACT_TO_EMAIL || SITE.email,
+      to,
       reply_to: email,
       subject: `Portfolio message from ${name}`,
       text: `From: ${name} <${email}>\n\n${message}`,
@@ -72,7 +73,8 @@ export default async function handler(
       await resendResponse.text(),
     );
     return res.status(502).json({
-      message: `Sorry, your message could not be sent. Please email ${SITE.email} instead.`,
+      message:
+        "Sorry, your message could not be sent. Please try again later or reach out on LinkedIn.",
     });
   }
 

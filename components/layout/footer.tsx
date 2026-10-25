@@ -6,7 +6,6 @@ import { FiArrowUp, FiArrowUpRight } from "react-icons/fi";
 
 import { NAV_ITEMS } from "./nav-items";
 import Button from "../ui/button";
-import CopyEmail from "../ui/copy-email";
 import SplitText from "../ui/split-text";
 import { SITE } from "../../lib/site";
 
@@ -35,7 +34,6 @@ function StuttgartTime() {
 const SOCIALS = [
   { label: "GitHub", href: SITE.github },
   { label: "LinkedIn", href: SITE.linkedin },
-  { label: "Email", href: `mailto:${SITE.email}` },
 ];
 
 export default function Footer() {
@@ -63,7 +61,9 @@ export default function Footer() {
               <Button link="/contact" size="lg" arrow>
                 Start a conversation
               </Button>
-              <CopyEmail />
+              <Button link={SITE.linkedin} external variant="ghost" size="lg">
+                Connect on LinkedIn
+              </Button>
             </div>
           </div>
         </section>
@@ -76,7 +76,7 @@ export default function Footer() {
               kazem<span className={classes.dot}>.</span>abdi
             </p>
             <p className={classes.muted}>
-              Web developer building responsive, modern web apps.
+              Full-stack engineer building AI features into real products.
             </p>
             <p className={classes.clock}>
               <span className={classes["clock-dot"]} />
@@ -105,10 +105,8 @@ export default function Footer() {
                   <a
                     href={social.href}
                     className={classes.link}
-                    {...(!social.href.startsWith("mailto:") && {
-                      target: "_blank",
-                      rel: "noopener noreferrer",
-                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {social.label}
                     <FiArrowUpRight

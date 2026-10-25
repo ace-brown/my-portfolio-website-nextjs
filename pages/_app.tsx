@@ -4,6 +4,7 @@ import { JetBrains_Mono, Manrope, Syne } from "next/font/google";
 import { MotionConfig } from "motion/react";
 
 import Layout from "../components/layout/layout";
+import type { PageWithLayout } from "../lib/page-layout";
 
 import "lenis/dist/lenis.css";
 import "../styles/globals.css";
@@ -19,6 +20,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
+  const page = Component as PageWithLayout<typeof pageProps>;
+  const getLayout = page.getLayout ?? ((element) => element);
+  const pageKey = page.layoutKey?.(pageProps) ?? router.asPath.split("#")[0];
+
   return (
     <>
       <Head>
@@ -33,8 +38,8 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
       `}</style>
       {/* "user" turns transform animations off for prefers-reduced-motion */}
       <MotionConfig reducedMotion="user">
-        <Layout pageKey={router.asPath}>
-          <Component {...pageProps} />
+        <Layout pageKey={pageKey}>
+          {getLayout(<Component {...pageProps} />, pageProps)}
         </Layout>
       </MotionConfig>
     </>

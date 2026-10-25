@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
+import { useCallback, useState, type CSSProperties } from "react";
 
 import classes from "./browser-frame.module.css";
 
@@ -27,6 +28,24 @@ export default function BrowserFrame({
   priority = false,
   mode = "pan",
 }: BrowserFrameProps) {
+  // The tiny blurred preview sits behind the screenshot as a background, and the
+  // real image fades in over it once loaded. (next/image's own blur placeholder
+  // swaps in a single frame, which flashes on bright screenshots.)
+  const [loaded, setLoaded] = useState(false);
+  // a cached image can finish loading before React hydrates, so check on mount too
+  const imageRef = useCallback((img: HTMLImageElement | null) => {
+    if (img?.complete && img.naturalWidth > 0) setLoaded(true);
+  }, []);
+
+  const imageProps = {
+    src: image,
+    sizes,
+    priority,
+    ref: imageRef,
+    onLoad: () => setLoaded(true),
+    "data-loaded": loaded,
+  };
+
   return (
     <div className={classes.frame} data-mode={mode}>
       <div className={classes.chrome} aria-hidden>
@@ -39,26 +58,27 @@ export default function BrowserFrame({
       </div>
       <div
         className={classes.viewport}
+        style={
+          image.blurDataURL
+            ? ({
+                "--preview": `url("${image.blurDataURL}")`,
+              } as CSSProperties)
+            : undefined
+        }
         // a scrollable frame must handle its own wheel events, not Lenis
         {...(mode === "scroll" && { tabIndex: 0, "data-lenis-prevent": true })}
       >
         {mode === "pan" ? (
           <Image
-            src={image}
+            {...imageProps}
             alt={alt}
             fill
-            sizes={sizes}
-            placeholder="blur"
-            priority={priority}
             className={classes["pan-image"]}
           />
         ) : (
           <Image
-            src={image}
+            {...imageProps}
             alt={alt}
-            sizes={sizes}
-            placeholder="blur"
-            priority={priority}
             className={classes["scroll-image"]}
           />
         )}

@@ -1,0 +1,9 @@
+.section {
+  padding-block: clamp(4rem, 10vw, 8rem);
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}

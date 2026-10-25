@@ -2,12 +2,12 @@ import Marquee from "../ui/marquee";
 import Reveal from "../ui/reveal";
 import SectionHeading from "../ui/section-heading";
 import SpotlightCard from "../ui/spotlight-card";
-import { ALL_SKILLS, SKILL_GROUPS } from "../../data/skills";
+import { MARQUEE_SKILLS, SKILL_GROUPS } from "../../data/skills";
 
 import classes from "./skills.module.css";
 
 export default function Skills() {
-  const half = Math.ceil(ALL_SKILLS.length / 2);
+  const half = Math.ceil(MARQUEE_SKILLS.length / 2);
 
   return (
     <section className={classes.skills} aria-labelledby="skills-title">
@@ -16,20 +16,20 @@ export default function Skills() {
           id="skills-title"
           eyebrow="02 — Skills"
           title="Tools of the trade"
-          aside="From pixel-perfect interfaces to APIs and smart contracts: the stack I use to turn ideas into working products."
+          aside="From database and API to frontend, auth, AI and CI/CD: the stack I use to ship complete products."
         />
       </div>
 
       <div className={classes.marquees} aria-hidden>
         <Marquee duration={35}>
-          {ALL_SKILLS.slice(0, half).map(({ name, icon: Icon }) => (
+          {MARQUEE_SKILLS.slice(0, half).map(({ name, icon: Icon }) => (
             <span key={name} className={classes["marquee-item"]}>
               <Icon /> {name}
             </span>
           ))}
         </Marquee>
         <Marquee duration={35} reverse>
-          {ALL_SKILLS.slice(half).map(({ name, icon: Icon }) => (
+          {MARQUEE_SKILLS.slice(half).map(({ name, icon: Icon }) => (
             <span key={name} className={classes["marquee-item"]}>
               <Icon /> {name}
             </span>

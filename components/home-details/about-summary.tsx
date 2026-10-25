@@ -4,20 +4,21 @@ import Button from "../ui/button";
 import Counter from "../ui/counter";
 import Reveal from "../ui/reveal";
 import ScrollRevealText from "../ui/scroll-reveal-text";
-import { getAllProjects, getYearsBuilding } from "../../data/projects";
+import { getAllProjects } from "../../data/projects";
+import { YEARS_OF_EXPERIENCE } from "../../data/profile";
 import { ALL_SKILLS } from "../../data/skills";
-import profileImg from "../../public/images/kazem-abdi.jpg";
+import profileImg from "../../public/images/kazem-abdi-desk.jpg";
 
 import classes from "./about-summary.module.css";
 
 const STATEMENT =
-  "I'm Kazem, a web developer based in Stuttgart. I craft responsive web apps with React, Next.js and Node.js, and I'm fascinated by new technologies like blockchain and AI. When I'm not coding, you'll find me somewhere between the sea and the forest.";
+  "I'm Kazem, a full-stack engineer in Stuttgart who builds AI features into real products. For over four years I've worked with TypeScript, React/Next.js, NestJS and Python/FastAPI, from database and API to frontend, auth and CI/CD, in security software and fintech.";
 
 export default function AboutSummary() {
   const stats = [
+    { value: YEARS_OF_EXPERIENCE, suffix: "+", label: "Years full-stack" },
     { value: getAllProjects().length, suffix: "", label: "Projects built" },
     { value: ALL_SKILLS.length, suffix: "+", label: "Technologies" },
-    { value: getYearsBuilding(), suffix: "+", label: "Years building" },
   ];
 
   return (
@@ -27,7 +28,7 @@ export default function AboutSummary() {
           <div className={classes["portrait-frame"]}>
             <Image
               src={profileImg}
-              alt="Portrait of Kazem Abdi Dehnoei"
+              alt="Kazem Abdi Dehnoei working at his desk"
               sizes="(max-width: 56em) 80vw, 30vw"
               placeholder="blur"
               className={classes["portrait-img"]}
@@ -35,7 +36,7 @@ export default function AboutSummary() {
           </div>
           <p className={classes.badge}>
             <span className={classes["badge-dot"]} />
-            Based in Stuttgart, DE
+            Available now · Stuttgart
           </p>
         </Reveal>
 

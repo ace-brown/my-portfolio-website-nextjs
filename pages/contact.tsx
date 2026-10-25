@@ -3,7 +3,6 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import Seo from "../components/seo";
 import ContactForm from "../components/contact/contact-form";
-import CopyEmail from "../components/ui/copy-email";
 import PageHeader from "../components/ui/page-header";
 import Reveal from "../components/ui/reveal";
 import { SITE } from "../lib/site";
@@ -25,7 +24,7 @@ export default function Contact() {
     <>
       <Seo
         title="Contact"
-        description="Get in touch with Kazem Abdi Dehnoei by email, LinkedIn or GitHub."
+        description="Get in touch with Kazem Abdi Dehnoei through the contact form, LinkedIn or GitHub."
       />
       <PageHeader
         eyebrow="Contact"
@@ -36,11 +35,6 @@ export default function Contact() {
       <section className={`container ${classes.grid}`}>
         <div className={classes.details}>
           <Reveal>
-            <p className={classes.label}>Email</p>
-            <CopyEmail />
-          </Reveal>
-
-          <Reveal delay={0.1}>
             <p className={classes.label}>Elsewhere</p>
             <ul className={classes.links}>
               {LINKS.map(({ label, handle, href, icon: Icon }) => (
@@ -65,7 +59,7 @@ export default function Contact() {
             </ul>
           </Reveal>
 
-          <Reveal delay={0.2}>
+          <Reveal delay={0.1}>
             <p className={classes.label}>Location</p>
             <p className={classes.location}>Stuttgart, Germany</p>
           </Reveal>

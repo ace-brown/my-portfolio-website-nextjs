@@ -10,7 +10,8 @@
 /* Card ***********************************************************/
 
 .card {
-  background-size: cover;
+  position: relative;
+  isolation: isolate;
   padding: 10rem 0 0;
   max-width: 35ch;
   color: var(--white);
@@ -18,6 +19,12 @@
   overflow: hidden;
   transition: transform 500ms ease;
   box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.15);
+}
+
+.card-img {
+  z-index: -1;
+  object-fit: cover;
+  object-position: top;
 }
 
 .card:hover,
@@ -62,7 +69,7 @@
 
 .card-body {
   /* Lightening the body text */
-  color: rgb(255, 255, 255 / 0.85);
+  color: rgb(255 255 255 / 0.85);
   margin-bottom: 0.5rem;
 }
 

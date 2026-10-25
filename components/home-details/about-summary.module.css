@@ -43,3 +43,9 @@
     font-size: clamp(1rem, 2vw, 1.2rem);
   }
 }
+
+.about-sum__img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--size-2);
+}

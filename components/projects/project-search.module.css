@@ -1,8 +1,8 @@
 .form {
   margin: 10rem auto 5rem auto;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 4px var(--color-shadow);
   padding: 3rem 1rem;
-  background-color: var(--white);
+  background-color: var(--color-surface);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -31,7 +31,9 @@
 
 .form__control select {
   font: inherit;
-  background-color: var(--white);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
   width: 70%;
   padding: 0.25rem;

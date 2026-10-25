@@ -30,19 +30,25 @@
   color: var(--white);
 }
 
-.contact a:hover {
+.contact a:hover,
+.contact a:focus {
   color: var(--color-primary-300-hover);
 }
 
 .contact-icon {
   margin-right: 2rem;
   font-size: 1.75rem;
-  cursor: pointer;
+}
+
+.copyright {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
 .links-list li {
   font-size: 1.1rem;
-  cursor: pointer;
 }
 
 .links a {

@@ -93,6 +93,7 @@ function StackCard({
         </div>
         <div className={classes.preview}>
           <BrowserFrame
+            bare={project.ownChrome}
             image={project.image}
             alt={`Screenshot of ${project.title}`}
             url={project.link}

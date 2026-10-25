@@ -10,6 +10,7 @@ import Reveal from "../ui/reveal";
 import SplitText from "../ui/split-text";
 import TechChips from "../projects/tech-chips";
 import type { Project } from "../../data/projects";
+import { richText } from "../../lib/rich-text";
 import { formatDate } from "../../lib/site";
 
 import classes from "./project-detail.module.css";
@@ -87,6 +88,7 @@ export default function ProjectDetail({
 
       <Reveal className={`container ${classes.preview}`} delay={0.3}>
         <BrowserFrame
+          bare={project.ownChrome}
           image={image}
           alt={`Screenshot of ${title}`}
           url={link}
@@ -116,6 +118,26 @@ export default function ProjectDetail({
           ))}
         </div>
       </section>
+
+      {project.highlights && (
+        <section
+          className={`container ${classes.overview}`}
+          aria-labelledby="highlights-title"
+        >
+          <Reveal>
+            <h2 id="highlights-title" className="eyebrow">
+              Highlights
+            </h2>
+          </Reveal>
+          <ul className={classes.highlights}>
+            {project.highlights.map((highlight, index) => (
+              <Reveal as="li" key={highlight} delay={index * 0.06}>
+                {richText(highlight)}
+              </Reveal>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <Link href={`/projects/${nextProject.id}`} className={classes.next}>
         <div className={`container ${classes["next-inner"]}`}>

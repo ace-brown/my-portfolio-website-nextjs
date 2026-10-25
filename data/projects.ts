@@ -11,6 +11,7 @@ import germanTodoImg from "../public/images/german-todo.png";
 import imgShopImg from "../public/images/img-shop.jpg";
 import hardhatImg from "../public/images/hardhat-img.png";
 import kraftmeisterImg from "../public/images/kraftmeister.jpg";
+import webSearchImg from "../public/images/web-search-demo.svg";
 
 export type Project = {
   id: string;
@@ -23,6 +24,10 @@ export type Project = {
   /** source code, when `link` points somewhere else (e.g. a live demo) */
   repo?: string;
   image: StaticImageData;
+  /** the image already shows its own window (e.g. a terminal recording), so skip the browser frame */
+  ownChrome?: boolean;
+  /** key points for the detail page; **bold** is rendered */
+  highlights?: string[];
   isFeatured: boolean;
 };
 
@@ -38,6 +43,34 @@ const PROJECTS: Project[] = [
     link: "https://kraftmeister.org",
     repo: "https://github.com/ace-brown/Kraftmeister",
     image: kraftmeisterImg,
+    highlights: [
+      "**Multi-tenant SaaS built alone**: data model, REST API, auth, frontend, AI service, deployment and CI/CD.",
+      "**AI service in Python/FastAPI** with LangChain and structured output (Pydantic): voice notes become job notes with Whisper, job descriptions become line items and pricing, and site photos are analyzed with vision models.",
+      "**NestJS API gateway** with Prisma 7 and PostgreSQL, JWT access + refresh tokens stored in Redis, and Swagger API docs.",
+      "**German-law-compliant invoice PDFs**: quotes convert to invoices in one click and download as PDFs.",
+      "**Production hardening**: Helmet, request throttling and Sentry error tracking.",
+      "**Deployed on a Hetzner VPS** with Docker Compose and Nginx; GitHub Actions type-checks, lints and builds every pull request.",
+    ],
+    isFeatured: true,
+  },
+  {
+    id: "p12",
+    title: "web-search",
+    descriptionFull: `A research agent for the terminal, built from scratch. Ask a question and it searches the web, reads the most useful pages and writes a Markdown report where every claim points to a numbered source.
+       It's built directly on the Anthropic Python SDK, with no LangChain or other agent framework: the agent loop, the tools, the guardrails and the terminal UI are all written by hand, so every part of how the agent works is visible in about 500 lines of Python. It installs as a command with uv or pipx and runs on your own API keys.`,
+    tech: "Python, Anthropic SDK, Tavily, trafilatura, rich, pytest",
+    date: "2026-10-10",
+    link: "https://github.com/ace-brown/my-agent",
+    image: webSearchImg,
+    ownChrome: true,
+    highlights: [
+      "**Agent loop written by hand**: send the conversation and tool definitions to Claude, run the tools it asks for, send the results back, repeat until it answers or a limit is hit.",
+      "**Cited reports, not memory**: it searches with Tavily, reads the actual pages (cleaned with trafilatura) and only cites pages it fetched.",
+      "**Guardrails enforced in code**: caps on rounds, searches and page reads; tool failures go back to the model as results instead of crashing the run.",
+      "**Prompt-injection aware**: instructions and untrusted web content are kept apart, the tools can only read, and web text is escaped before it reaches the terminal.",
+      "**Cost-aware**: prompt caching makes each round about 10× cheaper, and every run ends with a token summary.",
+      "**Event-driven and tested without the API**: the agent emits events that the terminal UI renders, and pytest runs it against a fake Claude and fake tools, so tests are free, fast and deterministic.",
+    ],
     isFeatured: true,
   },
   {

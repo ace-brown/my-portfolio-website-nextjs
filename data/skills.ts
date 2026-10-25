@@ -9,6 +9,7 @@ import {
   FaWordpress,
 } from "react-icons/fa";
 import {
+  SiAnthropic,
   SiCypress,
   SiDocker,
   SiFastapi,
@@ -121,6 +122,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     icon: FaRobot,
     skills: [
       { name: "AI agents", icon: FaRobot },
+      { name: "Anthropic SDK", icon: SiAnthropic },
       { name: "Tool calling", icon: TbTool },
       { name: "MCP", icon: TbPlugConnected },
       { name: "OpenAI", icon: TbBrandOpenai },

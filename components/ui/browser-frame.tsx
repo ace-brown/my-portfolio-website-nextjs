@@ -12,6 +12,8 @@ type BrowserFrameProps = {
   priority?: boolean;
   /** "pan": fixed height, the full-page screenshot scrolls on hover. "scroll": scrollable inside the frame. */
   mode?: "pan" | "scroll";
+  /** hide the window bar, for images that already show their own window */
+  bare?: boolean;
 };
 
 function displayUrl(url?: string) {
@@ -27,6 +29,7 @@ export default function BrowserFrame({
   sizes,
   priority = false,
   mode = "pan",
+  bare = false,
 }: BrowserFrameProps) {
   // The tiny blurred preview sits behind the screenshot as a background, and the
   // real image fades in over it once loaded. (next/image's own blur placeholder
@@ -48,14 +51,16 @@ export default function BrowserFrame({
 
   return (
     <div className={classes.frame} data-mode={mode}>
-      <div className={classes.chrome} aria-hidden>
-        <span className={classes.dots}>
-          <span />
-          <span />
-          <span />
-        </span>
-        <span className={classes.url}>{displayUrl(url)}</span>
-      </div>
+      {!bare && (
+        <div className={classes.chrome} aria-hidden>
+          <span className={classes.dots}>
+            <span />
+            <span />
+            <span />
+          </span>
+          <span className={classes.url}>{displayUrl(url)}</span>
+        </div>
+      )}
       <div
         className={classes.viewport}
         style={

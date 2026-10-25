@@ -7,12 +7,15 @@ type SeoProps = {
   title?: string;
   description?: string;
   image?: string;
+  /** schema.org structured data for search engines */
+  jsonLd?: Record<string, unknown>;
 };
 
 export default function Seo({
   title,
   description = SITE.description,
   image = SITE.ogImage,
+  jsonLd,
 }: SeoProps) {
   const router = useRouter();
   const fullTitle = title
@@ -33,6 +36,15 @@ export default function Seo({
       <meta property="og:url" content={url} />
       <meta property="og:image" content={imageUrl} />
       <meta name="twitter:card" content="summary_large_image" />
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          // escape "<" so the JSON can't close the script tag
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+      )}
     </Head>
   );
 }

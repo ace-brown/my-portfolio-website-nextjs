@@ -14,7 +14,8 @@ Personal portfolio of Kazem Abdi Dehnoei, a web developer based in Stuttgart, Ge
 - Project gallery with year/month filters (`/projects/2022`, `/projects/2022/7`) and a statically generated detail page per project
 - Light and dark mode (follows the system setting, with a toggle in the header)
 - Contact form that sends email through [Resend](https://resend.com)
-- Per-page SEO metadata, Open Graph tags, `sitemap.xml` and `robots.txt`
+- Per-page SEO metadata, Open Graph tags, schema.org Person data, `sitemap.xml` and `robots.txt`
+- Security headers with a strict Content Security Policy, and a spam-resistant contact API (rate limit, honeypot, same-origin check)
 - Optimized images (`next/image`) and self-hosted fonts (`next/font`)
 
 ## Tech stack
@@ -31,7 +32,7 @@ npm run dev        # http://localhost:3000
 Other scripts:
 
 ```bash
-npm run build      # production build
+npm run build      # production build (uses webpack, required by the CSP)
 npm run start      # serve the production build
 npm run lint       # ESLint
 npm run typecheck  # TypeScript

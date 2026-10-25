@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 import Button from "../ui/button";
@@ -10,11 +10,20 @@ type Status = "idle" | "sending" | "success" | "error";
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [feedback, setFeedback] = useState("");
+  // sent along so the server can ignore forms filled in faster than a human could
+  const shownAt = useRef(0);
+
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, []);
 
   const submitHandler = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form));
+    const data = {
+      ...Object.fromEntries(new FormData(form)),
+      elapsedMs: Date.now() - shownAt.current,
+    };
 
     setStatus("sending");
     setFeedback("");

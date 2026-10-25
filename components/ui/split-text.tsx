@@ -15,7 +15,7 @@ type SplitTextProps = {
 
 /**
  * Letters slide up from behind an invisible line, one after another.
- * Screen readers get the plain text via aria-label.
+ * Screen readers get the plain text from a visually hidden copy.
  */
 export default function SplitText({
   text,
@@ -35,13 +35,9 @@ export default function SplitText({
     : { animate: "visible" };
 
   return (
-    <motion.span
-      className={className}
-      aria-label={text}
-      role="text"
-      initial="hidden"
-      {...animateProps}
-    >
+    <motion.span className={className} initial="hidden" {...animateProps}>
+      {/* screen readers get the plain text; the animated letters are hidden from them */}
+      <span className="visually-hidden">{text}</span>
       {words.map((word, wordIndex) => (
         <Fragment key={wordIndex}>
           <span className={classes.word} aria-hidden>

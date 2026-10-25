@@ -46,6 +46,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       onPointerLeave={leaveHandler}
     >
       <BrowserFrame
+        bare={project.ownChrome}
         image={project.image}
         alt=""
         url={project.link}

@@ -48,7 +48,7 @@ function ProjectPage({ project, nextProject }: ProjectPageProps) {
       <Seo
         title={project.title}
         description={`${project.title}: ${project.tech}. ${project.descriptionFull.slice(0, 120).trim()}…`}
-        image={project.image.src}
+        image={project.image?.src}
       />
       <ProjectDetail project={project} nextProject={nextProject} />
     </>

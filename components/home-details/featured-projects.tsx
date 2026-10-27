@@ -10,6 +10,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 import Button from "../ui/button";
 import BrowserFrame from "../ui/browser-frame";
+import SiteMirror from "../ui/site-mirror";
 import SectionHeading from "../ui/section-heading";
 import TechChips from "../projects/tech-chips";
 import {
@@ -98,7 +99,11 @@ function StackCard({
             alt={`Screenshot of ${project.title}`}
             url={project.link}
             sizes="(max-width: 56em) 90vw, 600px"
-          />
+          >
+            {!project.image && (
+              <SiteMirror alt={`${project.title}, shown inside itself`} />
+            )}
+          </BrowserFrame>
         </div>
       </motion.article>
     </div>

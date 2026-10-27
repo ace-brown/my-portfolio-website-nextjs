@@ -6,6 +6,7 @@ import { FiArrowLeft, FiArrowUpRight } from "react-icons/fi";
 
 import Button from "../ui/button";
 import BrowserFrame from "../ui/browser-frame";
+import SiteMirror from "../ui/site-mirror";
 import Reveal from "../ui/reveal";
 import SplitText from "../ui/split-text";
 import TechChips from "../projects/tech-chips";
@@ -95,10 +96,14 @@ export default function ProjectDetail({
           mode="scroll"
           priority
           sizes="(max-width: 1200px) 95vw, 1200px"
-        />
-        <p className={classes.hint}>
-          Scroll inside the window to see the full page
-        </p>
+        >
+          {!image && <SiteMirror alt={`${title}, shown inside itself`} />}
+        </BrowserFrame>
+        {image && (
+          <p className={classes.hint}>
+            Scroll inside the window to see the full page
+          </p>
+        )}
       </Reveal>
 
       <section
@@ -149,13 +154,17 @@ export default function ProjectDetail({
             </p>
           </div>
           <div className={classes["next-thumb"]}>
-            <Image
-              src={nextProject.image}
-              alt=""
-              fill
-              sizes="320px"
-              className={classes["next-img"]}
-            />
+            {nextProject.image ? (
+              <Image
+                src={nextProject.image}
+                alt=""
+                fill
+                sizes="320px"
+                className={classes["next-img"]}
+              />
+            ) : (
+              <SiteMirror />
+            )}
           </div>
         </div>
       </Link>

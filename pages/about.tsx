@@ -16,8 +16,10 @@ import classes from "../styles/about.module.css";
 
 const BIO = [
   "Hello! I'm Kazem Abdi Dehnoei, a full-stack engineer based in Stuttgart who builds AI features into real products. For over four years I've worked with TypeScript, React/Next.js, NestJS and Python/FastAPI, owning the whole path from database and API to frontend, auth and CI/CD.",
-  "My background spans security software and fintech. At MATVIS I built an ICAP server in Python that connects an ML security service to proxies and gateways, and found and fixed web vulnerabilities with OWASP ZAP. At PayperChain I was the main frontend developer of a fintech dashboard for automated pay-per-use payments.",
-  "I also designed and built Kraftmeister on my own: a multi-tenant SaaS for German trade businesses with speech-to-text, LLM and vision features. Its source code is public, so you can review how I work before we talk.",
+  "In 2021 I started an M.Sc. in Computational Linguistics at the University of Stuttgart. As an international student I paid about €1,700 in tuition every semester, on top of rent and living costs, and after a few semesters a student job was no longer enough to cover it. I had to choose between work and study, so when PayperChain offered me a full-time position, I took it and left the programme. It wasn't an easy decision, but sometimes the right decision is a difficult one.",
+  "I wasn't studying computational linguistics just for the certificate, so I kept reading about it after I left. Those few semesters still taught me a lot about AI and NLP: I learned NLP and deep learning and trained models from scratch, studied parsing of human and computer languages, worked on information retrieval and text mining, did text technology with SQL and Python (pandas, NumPy, Matplotlib), took phonetics and phonology, and presented research on voice privacy, covering adversarial attacks against speaker recognition and voice conversion (voice cloning).",
+  "I worked at PayperChain for almost two years as the main frontend developer of its fintech dashboard. In 2024 and 2025 the crisis in the car industry hit the company, whose business is closely tied to that industry, and it had to cut its budget and reduce its team. I was one of the people let go.",
+  "After that I joined MATVIS on a fixed-term contract for 14 months. When it ended, my manager offered to extend it, and I really enjoyed the work. But I decided it was the right moment to look for a team where I can grow further and take on bigger challenges.",
 ];
 
 export default function About() {

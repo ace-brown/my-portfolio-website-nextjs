@@ -4,8 +4,6 @@ Personal portfolio of Kazem Abdi Dehnoei, a web developer based in Stuttgart, Ge
 
 **Live:** https://my-portfolio-website-nextjs.vercel.app/
 
-![Portfolio screenshot](public/images/portfolio.jpg)
-
 ## Features
 
 - Video hero where the ocean plays through the letters of my name

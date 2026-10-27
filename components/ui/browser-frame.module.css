@@ -79,7 +79,8 @@
   opacity: 1;
 }
 
-.frame[data-mode="pan"] .viewport {
+.frame[data-mode="pan"] .viewport,
+.frame[data-mode="custom"] .viewport {
   aspect-ratio: 16 / 11;
 }
 

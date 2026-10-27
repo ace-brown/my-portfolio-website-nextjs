@@ -2,7 +2,6 @@ import type { StaticImageData } from "next/image";
 
 import payperchainImg from "../public/images/payperchain.png";
 import fly5gImg from "../public/images/fly5g.png";
-import portfolioImg from "../public/images/portfolio.jpg";
 import carDealershipImg from "../public/images/car-dealership.png";
 import bitcoinImg from "../public/images/bitcoin.jpg";
 import visitedPlacesImg from "../public/images/visited-places.jpg";
@@ -12,6 +11,8 @@ import imgShopImg from "../public/images/img-shop.jpg";
 import hardhatImg from "../public/images/hardhat-img.png";
 import kraftmeisterImg from "../public/images/kraftmeister.jpg";
 import webSearchImg from "../public/images/web-search-demo.svg";
+import sanaImg from "../public/images/sana.png";
+import vadiImg from "../public/images/vadi.png";
 
 export type Project = {
   id: string;
@@ -23,7 +24,8 @@ export type Project = {
   link: string;
   /** source code, when `link` points somewhere else (e.g. a live demo) */
   repo?: string;
-  image: StaticImageData;
+  /** full-page screenshot; without one, the card shows the site drawn inside itself (SiteMirror) */
+  image?: StaticImageData;
   /** the image already shows its own window (e.g. a terminal recording), so skip the browser frame */
   ownChrome?: boolean;
   /** key points for the detail page; **bold** is rendered */
@@ -74,6 +76,47 @@ const PROJECTS: Project[] = [
     isFeatured: true,
   },
   {
+    id: "p13",
+    title: "Vadi",
+    descriptionFull: `A full-stack comparison site for internet and mobile plans in Germany. Instead of sorting by the headline price, Vadi ranks every offer by its effective monthly price over 24 months, with promo prices, setup and hardware fees and bonuses included. Offers can be filtered, compared side by side and opened at the provider through a tracked "go to offer" redirect. The site is in German with an English switch, and the bundled offers are fictional sample data.
+       The React and TypeScript frontend is built with Vite, Tailwind CSS and React Router. The Express and MongoDB API serves every listing type through one generic, configurable controller with filters, sorting, pagination, facet counts and range limits for the sliders, and is documented with OpenAPI.`,
+    tech: "React, TypeScript, Vite, Tailwind CSS, Node.js, Express, MongoDB, JWT",
+    date: "2025-04-25",
+    link: "https://vadi-gamma.vercel.app/",
+    repo: "https://github.com/ace-brown/vadi",
+    image: vadiImg,
+    highlights: [
+      '**Ranked by real cost**: each offer carries an effective monthly price over 24 months and a "Vadi score", both usable for sorting.',
+      "**One generic listing API**: a single config file defines which endpoints exist and how they filter; every list returns items, pagination, facet counts and min/max ranges.",
+      "**Comparison tools**: a needs-based tariff advisor with reasons, address availability checks, price history, price alert emails, a watchlist and saved comparisons.",
+      '**Tracked "go to offer" redirects** that log clicks without IP or user, with click stats for admins.',
+      "**Moderated provider reviews**, published only after an admin approves them.",
+      "**Feed import** that creates and updates offers by external ID and switches off offers missing from a provider's feed.",
+      "**Production details**: OpenAPI docs, cached and gzip-compressed public reads with ETags, bcrypt passwords and API tests against an in-memory MongoDB.",
+    ],
+    isFeatured: true,
+  },
+  {
+    id: "p14",
+    title: "Khayam Sana",
+    descriptionFull: `A web platform for a startup incubator. Founders register their business ideas, and the incubator team turns each idea into a tracked plan: a progress report broken into stages and tasks, and a cost estimate for the services the idea needs.
+       Every new idea gets a report automatically. Founders follow it through four stages (Idea Evaluation, Prototype Development, Testing, Development and Deployment) with task status and an overall completion percentage, and see the recommended services, their price, the assigned expert and payment status. Admins see all users, ideas and reports and create and edit the cost estimates.
+       The frontend is built with Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui and react-hook-form, with light and dark themes. The Express API uses Mongoose and MongoDB Atlas with JWT authentication, and both run on Vercel.`,
+    tech: "Next.js, TypeScript, Tailwind CSS, shadcn/ui, Node.js, Express, MongoDB, JWT",
+    date: "2024-12-13",
+    link: "https://sana-client.vercel.app/",
+    repo: "https://github.com/ace-brown/sana",
+    image: sanaImg,
+    highlights: [
+      "**Idea to tracked plan**: registering an idea creates its progress report, with four stages, tasks, status, notes and a completion percentage.",
+      "**Cost estimates** listing the recommended services, their price, the assigned expert and whether each is paid.",
+      "**Role-based access**: founders manage their own ideas and profile; admins see every user, idea and report and manage cost estimates.",
+      "**Express REST API** with Mongoose models for users, ideas, reports and costs, JWT authentication and bcrypt-hashed passwords.",
+      "**Next.js App Router frontend** with shadcn/ui, react-hook-form, light and dark themes and a mobile-friendly layout.",
+    ],
+    isFeatured: true,
+  },
+  {
     id: "p1",
     title: "payperchain.io",
     descriptionFull:
@@ -102,7 +145,6 @@ const PROJECTS: Project[] = [
     tech: "TypeScript, React, Next.js, CSS Modules",
     date: "2023-06-10",
     link: "https://github.com/ace-brown/my-portfolio-website-nextjs",
-    image: portfolioImg,
     isFeatured: true,
   },
   {

@@ -164,7 +164,7 @@
 .rotator {
   display: inline-flex;
   overflow: hidden;
-  vertical-align: bottom;
+  vertical-align: baseline;
   padding-bottom: 0.1em;
 }
 

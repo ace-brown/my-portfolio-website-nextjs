@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { FiArrowUpRight } from "react-icons/fi";
 
 import BrowserFrame from "../ui/browser-frame";
+import SiteMirror from "../ui/site-mirror";
 import TechChips from "./tech-chips";
 import type { Project } from "../../data/projects";
 
@@ -51,7 +52,9 @@ export default function ProjectCard({ project }: { project: Project }) {
         alt=""
         url={project.link}
         sizes="(max-width: 40em) 90vw, (max-width: 70em) 45vw, 380px"
-      />
+      >
+        {!project.image && <SiteMirror />}
+      </BrowserFrame>
       <div className={classes.body}>
         <div className={classes.top}>
           <h2 className={classes.title}>{project.title}</h2>

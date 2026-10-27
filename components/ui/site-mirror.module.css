@@ -1,0 +1,140 @@
+/*
+ * Every level places its .screen at the same relative spot (left 50%, top 30%, 42% × 42%),
+ * so each level is the previous one scaled by 0.42. Zooming by 1 / 0.42 around the
+ * fixed point of that mapping (offset / (1 - 0.42) = 86.2% 51.7%) turns the screen into the
+ * whole frame, which looks exactly like the start: a seamless loop at any aspect ratio.
+ */
+
+.mirror {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.zoom {
+  position: absolute;
+  inset: 0;
+  transform-origin: 86.2% 51.7%;
+  /* approximates exponential growth, so the zoom feels constant and its speed matches at the loop seam */
+  animation: zoom 7s cubic-bezier(0.333, 0.209, 0.667, 0.502) infinite;
+  will-change: transform;
+}
+
+@keyframes zoom {
+  to {
+    transform: scale(2.381);
+  }
+}
+
+.level {
+  position: absolute;
+  inset: 0;
+  container-type: size;
+  background:
+    radial-gradient(circle at 15% 20%, var(--color-glow), transparent 45%),
+    var(--color-bg);
+}
+
+.level > span {
+  position: absolute;
+}
+
+.nav {
+  top: 5%;
+  left: 30%;
+  width: 40%;
+  height: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6%;
+  border-radius: 999px;
+  border: 0.3cqw solid var(--color-border-strong);
+  background: var(--color-surface);
+}
+
+.nav span {
+  width: 14%;
+  height: 22%;
+  border-radius: 999px;
+  background: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.eyebrow {
+  top: 27%;
+  left: 7%;
+  width: 14%;
+  height: 2.4%;
+  border-radius: 999px;
+  background: var(--color-accent);
+}
+
+.name {
+  top: 32%;
+  left: 6.5%;
+  font-family: var(--font-display), sans-serif;
+  /* Syne is wide: keep the name clear of the window at 50% */
+  font-size: 7.5cqw;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: var(--gradient-brand);
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+.line {
+  top: 52%;
+  left: 7%;
+  width: 34%;
+  height: 2.6%;
+  border-radius: 999px;
+  background: var(--color-text-muted);
+  opacity: 0.35;
+}
+
+.line.short {
+  top: 57.5%;
+  width: 24%;
+}
+
+.button {
+  top: 64%;
+  left: 7%;
+  width: 16%;
+  height: 7%;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+}
+
+/* window bar above the screen */
+.bar {
+  top: 25%;
+  left: 50%;
+  width: 42%;
+  height: 5%;
+  border-radius: 1.2cqw 1.2cqw 0 0;
+  background:
+    radial-gradient(circle, #ff5f57 40%, transparent 45%) 3% 50% / 3cqw 100%
+      no-repeat,
+    radial-gradient(circle, #febc2e 40%, transparent 45%) 8% 50% / 3cqw 100%
+      no-repeat,
+    radial-gradient(circle, #28c840 40%, transparent 45%) 13% 50% / 3cqw 100%
+      no-repeat,
+    var(--color-surface-hover);
+}
+
+.screen {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 42%;
+  height: 42%;
+  overflow: hidden;
+  /* sized in cqw, not px, so it scales with the zoom and the loop stays seamless */
+  outline: 0.3cqw solid var(--color-border-strong);
+  box-shadow: 0 2cqw 5cqw -1cqw var(--color-shadow);
+}

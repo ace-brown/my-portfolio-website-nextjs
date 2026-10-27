@@ -1,10 +1,18 @@
 import Image, { type StaticImageData } from "next/image";
-import { useCallback, useState, type CSSProperties } from "react";
+import {
+  useCallback,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 
 import classes from "./browser-frame.module.css";
 
 type BrowserFrameProps = {
-  image: StaticImageData;
+  /** leave out to show `children` instead */
+  image?: StaticImageData;
+  /** content drawn in code, shown in place of a screenshot (fills a 16:11 window) */
+  children?: ReactNode;
   alt: string;
   /** shown in the fake address bar */
   url?: string;
@@ -24,6 +32,7 @@ function displayUrl(url?: string) {
 /** Screenshot inside a minimal browser window. */
 export default function BrowserFrame({
   image,
+  children,
   alt,
   url,
   sizes,
@@ -41,7 +50,6 @@ export default function BrowserFrame({
   }, []);
 
   const imageProps = {
-    src: image,
     sizes,
     priority,
     ref: imageRef,
@@ -50,7 +58,7 @@ export default function BrowserFrame({
   };
 
   return (
-    <div className={classes.frame} data-mode={mode}>
+    <div className={classes.frame} data-mode={image ? mode : "custom"}>
       {!bare && (
         <div className={classes.chrome} aria-hidden>
           <span className={classes.dots}>
@@ -64,18 +72,22 @@ export default function BrowserFrame({
       <div
         className={classes.viewport}
         style={
-          image.blurDataURL
+          image?.blurDataURL
             ? ({
                 "--preview": `url("${image.blurDataURL}")`,
               } as CSSProperties)
             : undefined
         }
         // a scrollable frame must handle its own wheel events, not Lenis
-        {...(mode === "scroll" && { tabIndex: 0, "data-lenis-prevent": true })}
+        {...(image &&
+          mode === "scroll" && { tabIndex: 0, "data-lenis-prevent": true })}
       >
-        {mode === "pan" ? (
+        {!image ? (
+          children
+        ) : mode === "pan" ? (
           <Image
             {...imageProps}
+            src={image}
             alt={alt}
             fill
             className={classes["pan-image"]}
@@ -83,6 +95,7 @@ export default function BrowserFrame({
         ) : (
           <Image
             {...imageProps}
+            src={image}
             alt={alt}
             className={classes["scroll-image"]}
           />
